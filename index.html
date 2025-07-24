@@ -24,11 +24,13 @@
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.2/dist/core.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="style.css">
+  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
@@ -43,6 +45,7 @@
 
   <!-- Glassmorphism Navigation -->
 <nav>
+  
   <div class="container nav-container">
     <a href="#" class="logo">Yahya Abbasi</a>
     <ul class="nav-links">
@@ -57,34 +60,46 @@
           <i class="fas fa-download"></i> Resume
         </a>
       </li>
+      <li class="theme-toggle">
+<input type="checkbox" id="dark-mode-toggle" />
+<label for="dark-mode-toggle" class="toggle-label">
+  <i class="fas fa-sun"></i>
+  <i class="fas fa-moon"></i>
+  <span class="toggle-ball"></span>
+</label>
+
+</li>
     </ul>
   </div>
+  <!-- Add this to your nav -->
+
 </nav>
   <!-- Glassmorphism Hero Section -->
 <section id="home" class="hero">
+  <div class="hero-gradient"></div>
   <div class="container hero-container">
     <div class="hero-content">
-      <span class="hero-subtitle">SELF-TAUGHT FRONTEND DEVELOPER</span>
-      <h1 class="hero-title">Transforming Ideas Into Digital Experiences</h1>
-      <p class="hero-description">
+      <span class="hero-subtitle animate__animated animate__fadeIn">SELF-TAUGHT FRONTEND DEVELOPER</span>
+      <h1 class="hero-title" id="typewriter"></h1>
+      <p class="hero-description animate__animated animate__fadeIn animate__delay-1s">
         I'm a passionate self-taught developer specializing in React and modern web technologies. 
         With a relentless drive to learn and create, I build performant, accessible, and 
         visually stunning web applications.
       </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">
+      <div class="hero-cta animate__animated animate__fadeIn animate__delay-2s">
+        <a href="#projects" class="btn btn-primary btn-glow">
           <i class="fas fa-eye"></i> View Projects
         </a>
-        <a href="#contact" class="btn btn-outline">
+        <a href="#contact" class="btn btn-outline btn-glow">
           <i class="fas fa-paper-plane"></i> Contact Me
         </a>
       </div>
     </div>
     <div class="hero-image">
       <div class="avatar-container">
-        <div class="avatar">
-          <!-- <img src="me.jpg" alt=""> -->
+        <div class="avatar floating">
           <div class="avatar-placeholder"></div>
+          <div class="avatar-glow"></div>
         </div>
       </div>
     </div>
@@ -239,120 +254,156 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
+<!-- Projects Section -->
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header">
       <h2 class="section-title">My Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <img src="proj.png" alt="Portal Web App">
+      <p class="section-subtitle">Handcrafted digital experiences with clean code and modern design</p>
+    </div>
+    
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="proj.png" alt="Portal Web App" class="project-image">
+          <div class="project-overlay">
             <div class="project-badge">Frontend</div>
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">Portal Web Application</h3>
-            <p class="project-description">
-              A feature-rich frontend interface developed entirely from scratch for a large-scale portal system. 
-              Includes full CRUD functionality, user profile management, and role-based UI rendering.
-            </p>
-            <div class="project-stats">
-              <div class="project-stat">
-                <i class="fas fa-user-cog"></i>
-                <span>Role-Based Access</span>
-              </div>
-              <div class="project-stat">
-                <i class="fas fa-edit"></i>
-                <span>CRUD Operations</span>
-              </div>
-              <div class="project-stat">
-                <i class="fas fa-id-card"></i>
-                <span>Profile Management</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Live Demo</span>
-              </a>
-              <a href="#" class="project-link">
-                <i class="fab fa-github"></i>
-                <span>Code</span>
-              </a>
+            <div class="project-tech-stack">
+              <span class="tech-tag react">React</span>
+              <span class="tech-tag javascript">JavaScript</span>
+              <span class="tech-tag css">CSS3</span>
             </div>
           </div>
         </div>
+        
+        <div class="project-content">
+          <h3 class="project-title">Portal Web Application</h3>
+          <p class="project-description">
+            A feature-rich frontend interface developed entirely from scratch for a large-scale portal system. 
+            Includes full CRUD functionality, user profile management, and role-based UI rendering.
+          </p>
+          
+          <div class="project-features">
+            <div class="feature">
+              <i class="fas fa-user-cog feature-icon"></i>
+              <span>Role-Based Access</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-edit feature-icon"></i>
+              <span>CRUD Operations</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-id-card feature-icon"></i>
+              <span>Profile Management</span>
+            </div>
+          </div>
+          
+          <!-- <div class="project-actions">
+            <a href="#" class="demo-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Live Demo
+            </a>
+            <a href="#" class="code-btn">
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div> -->
+        </div>
+      </div>
 
-        <div class="project-card">
-          <div class="project-image">
-            <img src="comapny.png" alt="Company Website">
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="comapny.png" alt="Company Website" class="project-image">
+          <div class="project-overlay">
             <div class="project-badge">Official Website</div>
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">Technationals Official Website</h3>
-            <p class="project-description">
-              Designed and built the company's official website using HTML, CSS, and JavaScript. 
-              Delivered a fast, responsive interface to showcase services and boost online presence.
-            </p>
-            <div class="project-stats">
-              <div class="project-stat">
-                <i class="fas fa-code"></i>
-                <span>HTML, CSS, JS</span>
-              </div>
-              <div class="project-stat">
-                <i class="fas fa-rocket"></i>
-                <span>Live Production</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://technationals.com/" class="project-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Live Demo</span>
-              </a>
-              <a href="#" class="project-link">
-                <i class="fab fa-github"></i>
-                <span>Code</span>
-              </a>
+            <div class="project-tech-stack">
+              <span class="tech-tag html">HTML5</span>
+              <span class="tech-tag css">CSS3</span>
+              <span class="tech-tag javascript">JavaScript</span>
             </div>
           </div>
         </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <img src="nemt1.png" alt="NEMT Website">
-            <div class="project-badge">Healthcare</div>
+        
+        <div class="project-content">
+          <h3 class="project-title">Technationals Official Website</h3>
+          <p class="project-description">
+            Designed and built the company's official website using HTML, CSS, and JavaScript. 
+            Delivered a fast, responsive interface to showcase services and boost online presence.
+          </p>
+          
+          <div class="project-features">
+            <div class="feature">
+              <i class="fas fa-code feature-icon"></i>
+              <span>HTML, CSS, JS</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-rocket feature-icon"></i>
+              <span>Live Production</span>
+            </div>
           </div>
-          <div class="project-info">
-            <h3 class="project-title">NEMT Service Website</h3>
-            <p class="project-description">
-              Built and deployed a responsive NEMT service website helping users book 
-              non-emergency medical transportation. Focused on clear UX and accessible design.
-            </p>
-            <div class="project-stats">
-              <div class="project-stat">
-                <i class="fas fa-code"></i>
-                <span>HTML, CSS, JS</span>
-              </div>
-              <div class="project-stat">
-                <i class="fas fa-globe"></i>
-                <span>Live Production</span>
-              </div>
+          
+          <div class="project-actions">
+            <a href="https://technationals.com/" class="demo-btn" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              Live Demo
+            </a>
+            <a href="#" class="code-btn">
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="nemt1.png" alt="NEMT Website" class="project-image">
+          <div class="project-overlay">
+            <div class="project-badge">Healthcare</div>
+            <div class="project-tech-stack">
+              <span class="tech-tag html">HTML5</span>
+              <span class="tech-tag css">CSS3</span>
+              <span class="tech-tag javascript">JavaScript</span>
             </div>
-            <div class="project-links">
-              <a href="https://nemt.technationals.com/" class="project-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Live Demo</span>
-              </a>
-              <a href="#" class="project-link">
-                <i class="fab fa-github"></i>
-                <span>Code</span>
-              </a>
+          </div>
+        </div>
+        
+        <div class="project-content">
+          <h3 class="project-title">NEMT Service Website</h3>
+          <p class="project-description">
+            Built and deployed a responsive NEMT service website helping users book 
+            non-emergency medical transportation. Focused on clear UX and accessible design.
+          </p>
+          
+          <div class="project-features">
+            <div class="feature">
+              <i class="fas fa-code feature-icon"></i>
+              <span>HTML, CSS, JS</span>
             </div>
+            <div class="feature">
+              <i class="fas fa-globe feature-icon"></i>
+              <span>Live Production</span>
+            </div>
+          </div>
+          
+          <div class="project-actions">
+            <a href="https://nemt.technationals.com/" class="demo-btn" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              Live Demo
+            </a>
+            <a href="#" class="code-btn">
+              <i class="fab fa-github"></i>
+              View Code
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
   <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="container testimonials-container">
@@ -485,6 +536,29 @@
   </footer>
 
   <script>
+    // Dark mode toggle functionality
+const toggle = document.getElementById('dark-mode-toggle');
+const html = document.documentElement;
+
+// Check for saved theme preference
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+  html.setAttribute('data-theme', currentTheme);
+  if (currentTheme === 'dark') {
+    toggle.checked = true;
+  }
+}
+
+// Toggle theme
+toggle.addEventListener('change', () => {
+  if (toggle.checked) {
+    html.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    html.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  }
+});
     // Initialize Vanta.js 3D background
     VANTA.NET({
       el: "#vanta-bg",
@@ -572,6 +646,39 @@
         });
       });
     }
+    // Add this to your script section
+// Typewriter Effect
+const typewriter = new Typewriter('#typewriter', {
+  loop: false,
+  delay: 50,
+  deleteSpeed: 30,
+});
+
+typewriter
+  .typeString('Transforming Ideas')
+  .pauseFor(500)
+  .typeString('<br>Into <span class="text-gradient">Digital Experiences</span>')
+  .start();
+
+// Custom cursor
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, button, .tech-item, .project-card').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    cursor.classList.add('cursor-hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('cursor-hover');
+  });
+});
+
   </script>
 </body>
 </html>
