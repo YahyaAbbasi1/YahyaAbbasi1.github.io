@@ -223,80 +223,82 @@
     }
 
     /* Holographic Skill Cards */
-    .skills {
-      padding: 8rem 0;
-      position: relative;
-    }
+.skills {
+  padding: 5rem 0; /* Reduced from 8rem */
+  position: relative;
+}
 
-    .section-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin-bottom: 5rem;
-      text-align: center;
-      background: linear-gradient(90deg, var(--light), var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem); /* Smaller font size */
+  margin-bottom: 3rem; /* Reduced from 5rem */
+  text-align: center;
+  background: linear-gradient(90deg, var(--light), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller min-width */
+  gap: 1.5rem; /* Reduced from 2rem */
+}
 
-    .skill-card {
-      background: rgba(10, 10, 20, 0.6);
-      border: 1px solid rgba(0, 240, 255, 0.1);
-      border-radius: 1rem;
-      padding: 2rem;
-      backdrop-filter: blur(10px);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
+.skill-card {
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  border-radius: 0.8rem; /* Slightly smaller radius */
+  padding: 1.5rem; /* Reduced from 2rem */
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
 
-    .skill-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
-      border-color: rgba(0, 240, 255, 0.3);
-    }
+.skill-card:hover {
+  transform: translateY(-5px); /* More subtle hover lift */
+  box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2); /* Smaller shadow */
+  border-color: rgba(0, 240, 255, 0.3);
+}
 
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 240, 0.1));
-      z-index: -1;
-      opacity: 0;
-      transition: var(--transition);
-    }
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 240, 0.1));
+  z-index: -1;
+  opacity: 0;
+  transition: var(--transition);
+}
 
-    .skill-card:hover::before {
-      opacity: 1;
-    }
+.skill-card:hover::before {
+  opacity: 1;
+}
 
-    .skill-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+.skill-icon {
+  font-size: 2rem; /* Reduced from 3rem */
+  margin-bottom: 1rem; /* Reduced from 1.5rem */
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-    .skill-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--light);
-    }
+.skill-title {
+  font-size: 1.2rem; /* Reduced from 1.5rem */
+  margin-bottom: 0.75rem; /* Reduced from 1rem */
+  color: var(--light);
+}
 
-    .skill-description {
-      color: rgba(240, 240, 255, 0.7);
-      line-height: 1.7;
-    }
+.skill-description {
+  color: rgba(240, 240, 255, 0.7);
+  font-size: 0.9rem; /* Slightly smaller text */
+  line-height: 1.5; /* Tighter line height */
+  margin-bottom: 0.5rem; /* Added to control spacing */
+}
 
     /* Interactive Project Showcase */
  .projects {
