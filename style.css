@@ -1,18 +1,26 @@
 :root {
-  /* Professional Color Palette */
-  --primary: #4361ee;         /* Trustworthy yet modern blue */
-  --primary-light: #4895ef;   /* Friendly accent */
-  --primary-dark: #3a0ca3;    /* Deep professional purple-blue */
-  --secondary: #4cc9f0;       /* Energetic teal */
-  --secondary-light: #80ffdb; /* Fresh highlight */
-  --dark: #14213d;            /* Professional navy */
-  --dark-gray: #2b2d42;       /* UI elements */
-  --light: #f8f9fa;           /* Clean white */
-  --light-gray: #e9ecef;      /* Backgrounds */
-  --glass: rgba(241, 243, 245, 0.12);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-highlight: rgba(67, 97, 238, 0.1);
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Core Branding */
+  --primary: #3B82F6;          /* Tailwind Blue-500: clean, tech-friendly */
+  --primary-light: #60A5FA;    /* Lighter blue for hover states */
+  --primary-dark: #1E40AF;     /* Dark blue for depth */
+
+  /* Accent (Modern, Fresh) */
+  --secondary: #14B8A6;        /* Teal-500: fresh but not childish */
+  --secondary-light: #5EEAD4;  /* Teal-300: highlights & buttons */
+
+  /* Neutral / Background */
+  --dark: #0F172A;             /* Slate-900: clean dark mode base */
+  --dark-gray: #1E293B;        /* Slate-800: cards, navbars */
+  --light: #F8FAFC;            /* Slate-50: clean backgrounds */
+  --light-gray: #E2E8F0;       /* Slate-200: borders, UI separators */
+
+  /* Glass / Accent Layers */
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(59, 130, 246, 0.1);
+
+  /* UX */
+  --transition: all 0.3s ease-in-out;
 }
 
     * {
