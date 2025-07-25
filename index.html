@@ -3,538 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>Yahya Abbasi | React Frontend Developer | Modern Web Experiences</title>
-  <meta name="description" content="Self-taught frontend developer specializing in React, JavaScript, and modern web technologies. Check out my portfolio of innovative web projects.">
-  <meta name="keywords" content="React developer, frontend developer, JavaScript, portfolio, web development, self-taught programmer">
-  <meta name="author" content="Yahya Abbasi">
-  
-  <!-- Social Media Meta Tags -->
-  <meta property="og:title" content="Yahya Abbasi | React Frontend Developer">
-  <meta property="og:description" content="Self-taught developer crafting modern web experiences with React and JavaScript.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourportfolio.com">
-  <meta property="og:image" content="https://yourportfolio.com/social-preview.jpg">
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Yahya Abbasi | React Frontend Developer">
-  <meta name="twitter:description" content="Self-taught developer crafting modern web experiences with React and JavaScript.">
-  <meta name="twitter:image" content="https://yourportfolio.com/social-preview.jpg">
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.2/dist/core.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <title>Yahya Abbasi | React Frontend Developer</title>
   <link rel="stylesheet" href="style.css">
-  
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <meta name="description" content="Frontend developer specializing in React and modern web applications.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
 
+  </style>
 </head>
 <body>
-  <!-- Interactive 3D Background -->
-  <div id="vanta-bg"></div>
-
-  <!-- Glassmorphism Navigation -->
+  <!-- Navigation -->
   <nav>
     <div class="container nav-container">
-      <a href="#" class="logo">Yahya Abbasi</a>
-      <ul class="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="Yahya-Abbasi-Resume.pdf" download class="resume-btn pulse-on-hover">
-            <i class="fas fa-download"></i> Resume
-          </a>
-        </li>
-        <li class="social-nav-item">
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-nav-link">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </li>
-        <li class="social-nav-item">
-          <a href="https://github.com/YahyaAbbasi1" target="_blank" class="social-nav-link">
-            <i class="fab fa-github"></i>
-          </a>
-        </li>
-        <li class="theme-toggle">
-          <input type="checkbox" id="dark-mode-toggle" />
-          <label for="dark-mode-toggle" class="toggle-label">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-            <span class="toggle-ball"></span>
-          </label>
-        </li>
-      </ul>
+      <a href="#" class="logo">Yahya<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="resume-btn">Resume</a>
+      </div>
     </div>
   </nav>
-  <!-- Glassmorphism Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-gradient"></div>
-    <div class="container hero-container">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
       <div class="hero-content">
-        <span class="hero-subtitle animate__animated animate__fadeIn">FRONTEND DEVELOPER | REACT SPECIALIST</span>
-        <h1 class="hero-title" id="typewriter"></h1>
+        <p class="hero-subtitle">FRONTEND DEVELOPER</p>
+        <h1 class="hero-title">Building digital experiences with clean code.</h1>
         <p class="hero-description">
-          I build fast, responsive, and accessible web applications with React and modern JavaScript.
-          Passionate about creating seamless user experiences with clean, efficient code.
+          I specialize in creating performant, accessible React applications with intuitive interfaces.
+          Currently focused on crafting modern web solutions.
         </p>
-        <div class="value-proposition">
-          <div class="value-item">
-            <i class="fas fa-bolt"></i>
-            <span>High-performance applications</span>
-          </div>
-          <div class="value-item">
-            <i class="fas fa-mobile-alt"></i>
-            <span>Pixel-perfect responsive design</span>
-          </div>
-          <div class="value-item">
-            <i class="fas fa-code"></i>
-            <span>Clean, maintainable code</span>
-          </div>
-        </div>
-        <div class="hero-cta animate__animated animate__fadeIn animate__delay-2s">
-          <a href="#projects" class="btn btn-primary btn-glow">
-            <i class="fas fa-code"></i> View My Work
-          </a>
-          <a href="#contact" class="btn btn-outline btn-glow">
-            <i class="fas fa-paper-plane"></i> Let's Talk
-          </a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="avatar-container">
-          <div class="avatar floating">
-            <img src="me.jpg" alt="Yahya Abbasi" class="portrait-core">
-            <div class="avatar-glow"></div>
-          </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- Personal Story About Me Section -->
-  <section id="about" class="about">
+
+  <!-- About Section -->
+  <section id="about">
     <div class="container">
-      <h2 class="section-title">My Journey</h2>
+      <h2 class="section-title">About Me</h2>
       <div class="about-grid">
-        <div class="about-text">
-          <p class="about-description">
-            My coding journey began with a simple curiosity that turned into an obsession. 
-            <span class="journey-highlight">As a self-taught developer</span>, I've spent countless hours 
-            mastering JavaScript, React, and modern web development through online courses, 
-            documentation, and building real projects.
+        <div class="about-content">
+          <p>
+            Hello! I'm Yahya, a self-taught frontend developer passionate about creating exceptional digital experiences. 
+            My journey began with simple HTML/CSS experiments and has evolved into building complex React applications.
           </p>
-          <p class="about-description">
-            What started as tinkering with HTML and CSS has grown into a passion for creating 
-            <span class="journey-highlight">interactive, user-centric applications</span>. I thrive on 
-            problem-solving and the constant evolution of web technologies.
+          <p>
+            I specialize in <span class="highlight">React, JavaScript</span>, and modern frontend development. 
+            What excites me most is solving real problems through clean, efficient code and intuitive interfaces.
           </p>
-          <p class="about-description">
-            When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
-            projects, or mentoring other aspiring developers who are beginning their own journeys.
+          <p>
+            Here are a few technologies I've been working with recently:
           </p>
-          <div class="about-stats">
-            <div class="stat-item">
-              <span class="stat-number">1000+</span>
-              <span class="stat-label">Hours Coding</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">15+</span>
-              <span class="stat-label">Projects Built</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">∞</span>
-              <span class="stat-label">Passion for Learning</span>
-            </div>
-          </div>
+          <ul class="skills-list">
+            <li>JavaScript (ES6+)</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>HTML5 & CSS3</li>
+            <li>Git & GitHub</li>
+            <li>Responsive Design</li>
+          </ul>
         </div>
-        <div class="cyber-portrait">
-          <div class="glow-effect"></div>
-          <div class="portrait-container">
-            <img src="me.jpg" alt="Yahya Abbasi" class="portrait-core">
-            <div class="data-overlay"></div>
-          </div>
+        <div class="about-image">
+          <img src="me.jpg" alt="Yahya Abbasi" class="portrait">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tech Stack Section -->
-  <section id="tech-stack" class="tech-stack">
-    <div class="container tech-stack-container">
-      <h2 class="section-title">My Tech Stack</h2>
-      <div class="tech-stack-grid">
-        <div class="tech-item">
-          <i class="fab fa-react tech-icon"></i>
-          <span class="tech-name">React</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-js tech-icon"></i>
-          <span class="tech-name">JavaScript</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-html5 tech-icon"></i>
-          <span class="tech-name">HTML5</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-css3-alt tech-icon"></i>
-          <span class="tech-name">CSS3</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-git-alt tech-icon"></i>
-          <span class="tech-name">Git</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-github tech-icon"></i>
-          <span class="tech-name">GitHub</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-server tech-icon"></i>
-          <span class="tech-name">REST APIs</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-mobile-alt tech-icon"></i>
-          <span class="tech-name">Responsive Design</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
+  <!-- Projects Section -->
+  <section id="projects">
     <div class="container">
-      <h2 class="section-title">What I Bring</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fab fa-react"></i>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <img src="project1.jpg" alt="Portal Web App" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Portal Web Application</h3>
+            <p class="project-description">
+              A comprehensive frontend interface with full CRUD functionality, user management, and role-based UI rendering.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS Modules</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+              <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+            </div>
           </div>
-          <h3 class="skill-title">React Development</h3>
-          <p class="skill-description">
-            Building dynamic, component-based UIs with React hooks, context API, and modern state management solutions.
-          </p>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-tachometer-alt"></i>
-          </div>
-          <h3 class="skill-title">Performance Optimization</h3>
-          <p class="skill-description">
-            Implementing code splitting, lazy loading, and efficient rendering to achieve blazing fast web experiences.
-          </p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3 class="skill-title">Responsive Design</h3>
-          <p class="skill-description">
-            Creating flawless, mobile-first experiences that adapt beautifully to any screen size or device.
-          </p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3 class="skill-title">Clean Code</h3>
-          <p class="skill-description">
-            Writing maintainable, well-documented code following best practices and design patterns.
-          </p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h3 class="skill-title">Project Architecture</h3>
-          <p class="skill-description">
-            Structuring scalable applications with proper folder organization and modular components.
-          </p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-bug"></i>
-          </div>
-          <h3 class="skill-title">Debugging</h3>
-          <p class="skill-description">
-            Efficiently identifying and resolving issues using browser tools and systematic approaches.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">My Projects</h2>
-      <p class="section-subtitle">Handcrafted digital experiences with clean code and modern design</p>
-    </div>
-    
-    <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="proj.png" alt="Portal Web App" class="project-image">
-          <div class="project-overlay">
-            <div class="project-badge">Frontend</div>
-            <div class="project-tech-stack">
-              <span class="tech-tag react">React</span>
-              <span class="tech-tag javascript">JavaScript</span>
-              <span class="tech-tag css">CSS3</span>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="project2.jpg" alt="Company Website" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Technationals Website</h3>
+            <p class="project-description">
+              Official company website with focus on performance and responsive design.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://technationals.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
             </div>
           </div>
         </div>
-        
-        <div class="project-content">
-          <h3 class="project-title">Portal Web Application</h3>
-          <p class="project-description">
-            A comprehensive frontend interface with full CRUD functionality, user management, and role-based UI rendering.
-            Built from scratch with optimized performance and clean architecture.
-          </p>
-          
-          <div class="project-features">
-            <div class="feature">
-              <i class="fas fa-user-cog feature-icon"></i>
-              <span>Role-Based Access</span>
-            </div>
-            <div class="feature">
-              <i class="fas fa-edit feature-icon"></i>
-              <span>CRUD Operations</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="comapny.png" alt="Company Website" class="project-image">
-          <div class="project-overlay">
-            <div class="project-badge">Official Website</div>
-            <div class="project-tech-stack">
-              <span class="tech-tag html">HTML5</span>
-              <span class="tech-tag css">CSS3</span>
-              <span class="tech-tag javascript">JavaScript</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-content">
-          <h3 class="project-title">Technationals Official Website</h3>
-          <p class="project-description">
-            Designed and built the company's official website with a focus on performance and responsive design.
-            Delivered a fast, accessible interface to showcase services and boost online presence.
-          </p>
-          
-          <div class="project-features">
-            <div class="feature">
-              <i class="fas fa-rocket feature-icon"></i>
-              <span>Live Production</span>
-            </div>
-            <div class="feature">
-              <i class="fas fa-mobile-alt feature-icon"></i>
-              <span>Fully Responsive</span>
-            </div>
-          </div>
-          
-          <div class="project-actions">
-            <a href="https://technationals.com/" class="demo-btn" target="_blank">
-              <i class="fas fa-external-link-alt"></i>
-              Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="nemt1.png" alt="NEMT Website" class="project-image">
-          <div class="project-overlay">
-            <div class="project-badge">Healthcare</div>
-            <div class="project-tech-stack">
-              <span class="tech-tag html">HTML5</span>
-              <span class="tech-tag css">CSS3</span>
-              <span class="tech-tag javascript">JavaScript</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-content">
-          <h3 class="project-title">NEMT Service Website</h3>
-          <p class="project-description">
-            Responsive website for booking non-emergency medical transportation.
-            Focused on clear UX and accessible design with intuitive booking flow.
-          </p>
-          
-          <div class="project-features">
-            <div class="feature">
-              <i class="fas fa-globe feature-icon"></i>
-              <span>Live Production</span>
-            </div>
-            <div class="feature">
-              <i class="fas fa-users feature-icon"></i>
-              <span>User-Friendly</span>
-            </div>
-          </div>
-          
-          <div class="project-actions">
-            <a href="https://nemt.technationals.com/" class="demo-btn" target="_blank">
-              <i class="fas fa-external-link-alt"></i>
-              Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <div class="container testimonials-container">
-      <h2 class="section-title">What People Say</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-content">
-            Yahya delivered exceptional work on our company website. His attention to detail and 
-            problem-solving skills were impressive for a self-taught developer.
-          </p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="author-avatar">
-            <div class="author-info">
-              <span class="author-name">Michael Johnson</span>
-              <span class="author-role">CEO, Technationals</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-content">
-            Working with Yahya was a pleasure. He quickly grasped our requirements and delivered 
-            a solution that exceeded our expectations.
-          </p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="author-avatar">
-            <div class="author-info">
-              <span class="author-name">Sarah Williams</span>
-              <span class="author-role">Project Manager</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-content">
-            Yahya's dedication to learning and growth is inspiring. His self-taught journey proves 
-            that passion and persistence can lead to remarkable skills.
-          </p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Mentor" class="author-avatar">
-            <div class="author-info">
-              <span class="author-name">David Chen</span>
-              <span class="author-role">Senior Developer</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Introduction Section -->
-  <section class="video-intro">
-    <div class="container">
-      <h2 class="section-title">My Story in 60 Seconds</h2>
-      <div class="video-container">
-        <div class="video-wrapper">
-          <!-- Placeholder for video - replace with your actual video embed code -->
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" 
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-                  gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <p style="margin-top: 1.5rem; color: rgba(240, 240, 255, 0.7);">
-          A quick introduction to my journey and passion for web development.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call-to-Action Section -->
-  <section class="cta">
-    <div class="container cta-container">
-      <h2 class="cta-title">Ready to Build Something Amazing?</h2>
-      <p class="cta-description">
-        Whether you have a project in mind or just want to connect, I'd love to hear from you. 
-        Let's create something extraordinary together.
-      </p>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i> Get In Touch
-        </a>
-        <a href="#projects" class="btn btn-outline">
-          <i class="fas fa-eye"></i> See My Work
-        </a>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact">
     <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Get in touch</h3>
-          <p>I'm currently available for freelance work and full-time positions. Let's discuss how I can help with your project.</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:yahyaabbasi36@gmail.com">yahyaabbasi36@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+92 (323) 0409687</span>
-            </div>
-            <div class="contact-social">
-              <a href="https://github.com/YahyaAbbasi1" target="_blank" class="social-link">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-link">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="Yahya-Abbasi-Resume.pdf" download class="social-link">
-                <i class="fas fa-file-pdf"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <form class="contact-form" action="https://formsubmit.co/yahyaabbasi36@gmail.com" method="POST">
-          <div class="form-group">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" id="name" name="name" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Your Email</label>
-            <input type="email" id="email" name="email" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Your Message</label>
-            <textarea id="message" name="message" class="form-input" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary submit-btn">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-description">
+        I'm currently available for new opportunities. Whether you have a project in mind or just want to connect, 
+        feel free to reach out.
+      </p>
+      <a href="mailto:yahyaabbasi36@gmail.com" class="contact-btn">Say Hello</a>
+      <div class="social-links">
+        <a href="https://github.com/YahyaAbbasi1" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </section>
@@ -542,156 +144,58 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <a href="#" class="logo footer-logo">Yahya Abbasi</a>
-          <p>Creating exceptional digital experiences through clean code and innovative solutions.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-cta">
-          <h4>Let's Work Together</h4>
-          <a href="#contact" class="btn btn-outline">Get in Touch</a>
-          <a href="Yahya-Abbasi-Resume.pdf" download class="btn btn-primary">Download CV</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="copyright">© 2025 Yahya Abbasi. All rights reserved.</p>
-      </div>
+      <p class="footer-text">Designed & Built by Yahya Abbasi</p>
     </div>
   </footer>
-  
-  <button id="scroll-top" class="scroll-top-btn">
-    <i class="fas fa-arrow-up"></i>
-  </button>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Smooth scroll for all links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          window.scrollTo({
-            top: target.offsetTop - 80,
-            behavior: 'smooth'
-          });
+    // Simple smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
       });
-
-      // Scroll to top button
-      const scrollTopBtn = document.getElementById('scroll-top');
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-          scrollTopBtn.classList.add('show');
-        } else {
-          scrollTopBtn.classList.remove('show');
-        }
-      });
-      scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Enhanced hover effects
-      document.querySelectorAll('.project-card, .skill-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const x = e.pageX - card.offsetLeft;
-          const y = e.pageY - card.offsetTop;
-          
-          card.style.setProperty('--x', `${x}px`);
-          card.style.setProperty('--y', `${y}px`);
-        });
-      });
-      
-      // Initialize Vanta.js 3D background
-      VANTA.NET({
-        el: "#vanta-bg",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x00f0ff,
-        backgroundColor: 0x0a0a14,
-        points: 12.00,
-        maxDistance: 20.00,
-        spacing: 15.00
-      });
-
-      // Typewriter Effect
-      const typewriter = new Typewriter('#typewriter', {
-        loop: false,
-        delay: 50,
-        deleteSpeed: 30,
-      });
-
-      typewriter
-        .typeString('Building Digital Experiences')
-        .pauseFor(500)
-        .typeString('<br>That <span class="text-gradient">Users Love</span>')
-        .start();
-
-      // Dark mode toggle functionality
-      const toggle = document.getElementById('dark-mode-toggle');
-      const html = document.documentElement;
-
-      // Check for saved theme preference
-      const currentTheme = localStorage.getItem('theme');
-      if (currentTheme) {
-        html.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-          toggle.checked = true;
-        }
-      }
-
-      // Toggle theme
-      toggle.addEventListener('change', () => {
-        if (toggle.checked) {
-          html.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          html.removeAttribute('data-theme');
-          localStorage.setItem('theme', 'light');
-        }
-      });
-      
-      // Form submission
-      const contactForm = document.querySelector('.contact-form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          
-          const submitBtn = contactForm.querySelector('.submit-btn');
-          submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-          submitBtn.disabled = true;
-          
-          setTimeout(() => {
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            submitBtn.disabled = false;
-            contactForm.reset();
-          }, 3000);
-          
-          // Actually submit the form
-          const formData = new FormData(contactForm);
-          fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-        });
-      }
     });
+
+    // Add scroll reveal animations (optional)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+  if (!('ontouchstart' in window)) {
+    document.body.classList.add('cursor-glow-active');
+    
+    let mouseX = 0, mouseY = 0;
+    let posX = 0, posY = 0;
+    const friction = 0.2; // Smoothness (0.1-0.3)
+    
+    const animate = () => {
+      // Smooth trailing effect
+      posX += (mouseX - posX) * friction;
+      posY += (mouseY - posY) * friction;
+      
+      document.documentElement.style.setProperty('--cursor-x', `${posX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${posY}px`);
+      requestAnimationFrame(animate);
+    };
+    animate();
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+  }
+});
   </script>
 </body>
 </html>
