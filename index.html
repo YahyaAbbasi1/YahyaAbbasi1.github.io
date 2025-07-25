@@ -3,20 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yahya Abbasi | React & TypeScript Specialist</title>
+  <title>Yahya Abbasi | Senior React & TypeScript Engineer</title>
   <meta name="description" content="Professional Frontend Developer with 2+ years experience building scalable React applications with TypeScript, API integration, and optimized workflows.">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      /* Professional Color Palette */
-      --dark: #0a0a14;
-      --dark-gray: #1a1a2e;
-      --light: #f0f0ff;
+      /* Modern Color Palette */
+      --dark: #0f172a;
+      --darker: #020617;
+      --dark-gray: #1e293b;
+      --light: #f8fafc;
+      --light-gray: #e2e8f0;
       --primary: #3b82f6;
       --primary-light: #60a5fa;
+      --primary-dark: #2563eb;
       --accent: #14b8a6;
       --success: #10b981;
+      --gradient: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
       
       /* Typography */
       --heading-font: 'Space Grotesk', sans-serif;
@@ -24,7 +30,17 @@
       
       /* Spacing */
       --section-padding: 120px 0;
-      --container-width: min(1100px, 90%);
+      --container-width: min(1200px, 90%);
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      
+      /* Transitions */
+      --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
     /* Base Styles */
@@ -34,12 +50,30 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: var(--body-font);
       background-color: var(--dark);
       color: var(--light);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+      z-index: -1;
+      pointer-events: none;
     }
 
     .container {
@@ -50,35 +84,124 @@
 
     section {
       padding: var(--section-padding);
+      position: relative;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: var(--heading-font);
       font-weight: 700;
       line-height: 1.2;
+      color: var(--light);
     }
 
     a {
       color: var(--primary);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: var(--transition);
     }
 
     /* Professional Typography Scale */
-    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
-    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
-    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-    p { font-size: clamp(1rem, 1.05vw, 1.1rem); }
+    h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 3rem; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+    h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+    p { font-size: clamp(1rem, 1.05vw, 1.125rem); color: rgba(248, 250, 252, 0.8); line-height: 1.7; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 1rem;
+      cursor: pointer;
+      gap: 0.5rem;
+      border: none;
+      font-family: var(--body-font);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: var(--light);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+      opacity: 0;
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 1;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-outline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      opacity: 0;
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .btn-outline:hover {
+      color: var(--light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline:hover::before {
+      opacity: 1;
+    }
 
     /* Navigation */
     nav {
       position: fixed;
       width: 100%;
-      padding: 25px 0;
-      background-color: rgba(10, 10, 20, 0.98);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      border-bottom: 1px solid rgba(240, 240, 255, 0.1);
+      padding: 1.5rem 0;
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.08);
+      transition: var(--transition);
+    }
+
+    nav.scrolled {
+      padding: 1rem 0;
+      box-shadow: var(--shadow-md);
     }
 
     .nav-container {
@@ -92,19 +215,34 @@
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .logo span {
       color: var(--primary);
     }
 
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient);
+      border-radius: 6px;
+      color: var(--light);
+    }
+
     .nav-links {
       display: flex;
       gap: 2rem;
+      align-items: center;
     }
 
     .nav-links a {
-      color: var(--light);
+      color: var(--light-gray);
       font-weight: 500;
       position: relative;
       font-size: 0.95rem;
@@ -118,7 +256,11 @@
       width: 0;
       height: 2px;
       background: var(--primary);
-      transition: width 0.3s ease;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--light);
     }
 
     .nav-links a:hover::after {
@@ -126,50 +268,121 @@
     }
 
     .resume-btn {
-      background-color: var(--primary);
-      color: var(--dark);
+      background: var(--gradient);
+      color: var(--light);
       padding: 0.6rem 1.2rem;
-      border-radius: 4px;
+      border-radius: 6px;
       font-weight: 500;
       margin-left: 2rem;
       font-size: 0.95rem;
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
     }
 
     .resume-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
     }
 
     /* Hero Section */
     .hero {
       height: 100vh;
+      min-height: 800px;
       display: flex;
       align-items: center;
       padding-top: 80px;
       position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      z-index: -1;
+      animation: pulse 15s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-subtitle {
       color: var(--primary);
       font-size: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-subtitle::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--primary);
+      display: inline-block;
     }
 
     .hero-title {
       margin-bottom: 1.5rem;
       color: var(--light);
+      position: relative;
+    }
+
+    .hero-title span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(59, 130, 246, 0.4);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+    }
+
+    .hero-title.animate span::after {
+      transform: scaleX(1);
     }
 
     .hero-description {
-      color: rgba(240, 240, 255, 0.8);
+      color: rgba(248, 250, 252, 0.8);
       margin-bottom: 2.5rem;
       max-width: 600px;
       line-height: 1.7;
@@ -178,43 +391,53 @@
     .hero-cta {
       display: flex;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    .btn {
-      padding: 0.8rem 1.8rem;
-      border-radius: 4px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 1rem;
+    .tech-stack {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
 
-    .btn:hover {
+    .tech-stack p {
+      font-size: 0.9rem;
+      color: rgba(248, 250, 252, 0.6);
+      margin: 0;
+    }
+
+    .tech-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .tech-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(248, 250, 252, 0.05);
+      border-radius: 8px;
+      color: var(--primary-light);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .tech-icon:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
       transform: translateY(-3px);
     }
 
-    .btn-primary {
-      background-color: var(--primary);
-      color: var(--dark);
-      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-outline:hover {
-      background-color: rgba(59, 130, 246, 0.1);
-    }
-
     /* About Section */
+    .about {
+      position: relative;
+    }
+
     .section-title {
-      color: var(--light);
-      margin-bottom: 3rem;
       position: relative;
       display: inline-block;
     }
@@ -225,8 +448,9 @@
       bottom: -10px;
       left: 0;
       width: 60px;
-      height: 3px;
-      background: var(--primary);
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
     }
 
     .about-grid {
@@ -237,9 +461,7 @@
     }
 
     .about-content p {
-      color: rgba(240, 240, 255, 0.8);
       margin-bottom: 1.5rem;
-      line-height: 1.7;
     }
 
     .highlight {
@@ -257,9 +479,9 @@
     .skills-list li {
       position: relative;
       margin-bottom: 0.8rem;
-      padding-left: 20px;
+      padding-left: 25px;
       font-size: 0.95rem;
-      color: rgba(240, 240, 255, 0.7);
+      color: rgba(248, 250, 252, 0.7);
       list-style: none;
     }
 
@@ -268,45 +490,94 @@
       position: absolute;
       left: 0;
       color: var(--primary);
+      font-size: 1.1rem;
     }
 
     .about-image {
       position: relative;
-      max-width: 300px;
+      max-width: 350px;
       margin-left: auto;
+    }
+
+    .portrait-container {
+      position: relative;
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
     }
 
     .portrait {
       width: 100%;
-      border-radius: 5px;
+      display: block;
       filter: grayscale(100%) contrast(1);
-      transition: filter 0.5s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
     }
 
-    .portrait:hover {
+    .portrait-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0.1;
+      mix-blend-mode: overlay;
+      transition: var(--transition);
+    }
+
+    .portrait-container:hover .portrait {
       filter: none;
     }
 
+    .portrait-container:hover::before {
+      opacity: 0.2;
+    }
+
     /* Experience Section */
+    .experience {
+      background: rgba(2, 6, 23, 0.5);
+      position: relative;
+    }
+
+    .experience::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+      z-index: -1;
+    }
+
     .experience-tabs {
       display: flex;
       gap: 1rem;
       margin-bottom: 2rem;
-      border-bottom: 1px solid rgba(240, 240, 255, 0.1);
+      border-bottom: 1px solid rgba(248, 250, 252, 0.1);
       padding-bottom: 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .experience-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .tab-btn {
       background: none;
       border: none;
-      color: rgba(240, 240, 255, 0.7);
+      color: rgba(248, 250, 252, 0.7);
       font-family: var(--body-font);
       font-size: 1rem;
       padding: 0.5rem 1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: var(--transition);
       position: relative;
+      white-space: nowrap;
     }
 
     .tab-btn.active {
@@ -316,15 +587,28 @@
     .tab-btn.active::after {
       content: '';
       position: absolute;
-      bottom: -12px;
+      bottom: -13px;
       left: 0;
       width: 100%;
-      height: 2px;
-      background: var(--primary);
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
     }
 
     .experience-content {
       display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .experience-content.active {
@@ -332,22 +616,26 @@
     }
 
     .job-title {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
-      color: var(--light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .job-company {
+      color: var(--primary);
     }
 
     .job-period {
-      color: var(--primary);
+      color: var(--primary-light);
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
       display: block;
     }
 
     .job-description {
-      color: rgba(240, 240, 255, 0.8);
       margin-bottom: 1.5rem;
-      line-height: 1.7;
     }
 
     .job-achievements {
@@ -358,16 +646,16 @@
       position: relative;
       padding-left: 30px;
       margin-bottom: 1rem;
-      color: rgba(240, 240, 255, 0.7);
+      color: rgba(248, 250, 252, 0.7);
       line-height: 1.6;
     }
 
     .job-achievements li::before {
-      content: '✓';
+      content: '▹';
       position: absolute;
       left: 0;
       color: var(--success);
-      font-weight: bold;
+      font-size: 1.2rem;
     }
 
     /* Projects Section */
@@ -380,29 +668,48 @@
 
     .project-card {
       background: var(--dark-gray);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(240, 240, 255, 0.05);
+      transition: var(--transition);
+      border: 1px solid rgba(248, 250, 252, 0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      z-index: -1;
+      transition: var(--transition);
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      border-color: rgba(59, 130, 246, 0.3);
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+      border-color: transparent;
+    }
+
+    .project-card:hover::before {
+      opacity: 0.1;
     }
 
     .project-image-container {
       position: relative;
       overflow: hidden;
-      height: 200px;
+      height: 220px;
     }
 
     .project-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: var(--transition);
     }
 
     .project-card:hover .project-image {
@@ -410,19 +717,15 @@
     }
 
     .project-content {
-      padding: 1.8rem;
+      padding: 2rem;
     }
 
     .project-title {
-      margin-bottom: 0.8rem;
-      color: var(--light);
+      margin-bottom: 1rem;
     }
 
     .project-description {
-      color: rgba(240, 240, 255, 0.7);
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.7;
     }
 
     .project-tech {
@@ -439,6 +742,12 @@
       border-radius: 4px;
       color: var(--primary-light);
       font-family: var(--heading-font);
+      transition: var(--transition);
+    }
+
+    .project-card:hover .tech-tag {
+      background: rgba(248, 250, 252, 0.1);
+      color: var(--light);
     }
 
     .project-links {
@@ -450,7 +759,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--light);
+      color: var(--light-gray);
       font-size: 0.95rem;
     }
 
@@ -461,30 +770,42 @@
     /* Contact Section */
     .contact {
       text-align: center;
+      position: relative;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+      z-index: -1;
     }
 
     .contact-description {
       max-width: 600px;
       margin: 0 auto 3rem;
-      color: rgba(240, 240, 255, 0.8);
-      line-height: 1.7;
     }
 
     .contact-btn {
-      display: inline-block;
+      background: var(--gradient);
+      color: var(--light);
       padding: 1rem 2rem;
-      background: var(--primary);
-      color: var(--dark);
-      border-radius: 4px;
+      border-radius: 8px;
       font-weight: 500;
       margin-top: 1rem;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .contact-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+      box-shadow: var(--shadow-lg);
     }
 
     .social-links {
@@ -492,37 +813,49 @@
       justify-content: center;
       gap: 1.5rem;
       margin-top: 3rem;
+      flex-wrap: wrap;
     }
 
     .social-links a {
       color: var(--light);
       font-size: 1.3rem;
-      transition: all 0.3s ease;
-      width: 45px;
-      height: 45px;
+      transition: var(--transition);
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background: rgba(240, 240, 255, 0.05);
+      background: rgba(248, 250, 252, 0.05);
     }
 
     .social-links a:hover {
       color: var(--primary);
       background: rgba(59, 130, 246, 0.1);
       transform: translateY(-3px);
+      box-shadow: var(--shadow);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 0;
-      border-top: 1px solid rgba(240, 240, 255, 0.1);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(248, 250, 252, 0.1);
+      position: relative;
     }
 
     .footer-text {
-      color: rgba(240, 240, 255, 0.6);
+      color: rgba(248, 250, 252, 0.6);
       font-size: 0.9rem;
+    }
+
+    .footer-text a {
+      color: var(--primary-light);
+      font-weight: 500;
+    }
+
+    .footer-text a:hover {
+      color: var(--primary);
     }
 
     /* Animations */
@@ -541,32 +874,101 @@
       animation: fadeInUp 0.6s ease forwards;
     }
 
+    /* Particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .about-image {
+        margin: 0 auto;
+      }
+    }
+
     @media (max-width: 768px) {
       :root {
         --section-padding: 80px 0;
       }
 
       .nav-links {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--darker);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: var(--transition);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .resume-btn {
+        margin-left: 0;
       }
 
       .hero {
         text-align: center;
         padding-top: 100px;
+        min-height: auto;
+        height: auto;
+        padding-bottom: 80px;
       }
 
       .hero-cta {
         justify-content: center;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
+      .hero-subtitle {
+        justify-content: center;
       }
 
-      .about-image {
-        order: -1;
-        margin: 0 auto 3rem;
+      .hero-subtitle::before {
+        display: none;
+      }
+
+      .tech-stack {
+        justify-content: center;
       }
 
       .projects-grid {
@@ -586,7 +988,6 @@
 
       .btn {
         width: 100%;
-        text-align: center;
       }
 
       .skills-list {
@@ -595,107 +996,186 @@
 
       .experience-tabs {
         flex-direction: column;
+        align-items: flex-start;
         gap: 0.5rem;
+      }
+
+      .tab-btn.active::after {
+        bottom: -5px;
+      }
+
+      .project-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .project-links a {
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <nav>
+  <nav id="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">Yahya<span>.</span></a>
+      <a href="#" class="logo">
+        <span class="logo-icon">Y</span>
+        <span>Yahya<span>.</span></span>
+      </a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a href="Yahya_Abbasi_Updated_Resume.pdf" class="resume-btn" download>Resume</a>
+        <a href="Yahya_Abbasi_Updated_Resume.pdf" class="resume-btn" download>
+          <i class="fas fa-download"></i> Resume
+        </a>
       </div>
+      <button class="mobile-menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="particles" id="particles"></div>
     <div class="container">
       <div class="hero-content">
-        <p class="hero-subtitle">React & TypeScript Specialist</p>
-        <h1 class="hero-title">Yahya Abbasi</h1>
-        <p class="hero-description">
-          Frontend Developer with 2+ years of experience building scalable web applications. 
-          I specialize in React, TypeScript, and API integration to create performant, 
-          user-friendly interfaces with modern architectures.
+        <p class="hero-subtitle animate">
+          <i class="fas fa-code"></i> Senior Frontend Engineer
         </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-outline">Let's Connect</a>
+        <h1 class="hero-title">
+          <span>Yahya Abbasi</span>
+        </h1>
+        <p class="hero-description animate">
+          I build exceptional digital experiences with React, TypeScript, and modern web technologies. 
+          With 2+ years of professional experience, I specialize in creating performant, 
+          accessible, and scalable web applications.
+        </p>
+        <div class="hero-cta animate">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-eye"></i> View Projects
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+        <div class="tech-stack animate">
+          <p>Tech I work with:</p>
+          <div class="tech-icons">
+            <div class="tech-icon" title="React">
+              <i class="fab fa-react"></i>
+            </div>
+            <div class="tech-icon" title="TypeScript">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="tech-icon" title="JavaScript">
+              <i class="fab fa-js"></i>
+            </div>
+            <div class="tech-icon" title="HTML5">
+              <i class="fab fa-html5"></i>
+            </div>
+            <div class="tech-icon" title="CSS3">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title animate">About Me</h2>
       <div class="about-grid">
         <div class="about-content">
-          <p>
+          <p class="animate">
             Hello! I'm Yahya Abbasi, a passionate Frontend Developer with professional experience 
             building modern web applications. My journey in development began with self-learning 
             and has grown into a career creating production-ready solutions.
           </p>
-          <p>
+          <p class="animate">
             At <span class="highlight">Technationals</span>, I developed and deployed multiple web applications 
             with full frontend-backend integration, implementing features like theme customization, 
             multi-language support, and secure authentication systems.
           </p>
-          <p>
-            Here are some technologies I specialize in:
+          <p class="animate">
+            Here are some technologies I've been working with recently:
           </p>
-          <ul class="skills-list">
-            <li>React.js</li>
+          <ul class="skills-list animate">
+            <li>React.js & Next.js</li>
             <li>TypeScript</li>
             <li>JavaScript (ES6+)</li>
             <li>Redux / Zustand</li>
             <li>React Query</li>
-            <li>RESTful APIs</li>
+            <li>GraphQL</li>
+            <li>Tailwind CSS</li>
+            <li>Node.js</li>
             <li>Git & GitHub</li>
-            <li>cPanel Deployment</li>
+            <li>CI/CD Pipelines</li>
           </ul>
         </div>
-        <div class="about-image">
-          <img src="me.jpg" alt="Yahya Abbasi" class="portrait">
+        <div class="about-image animate">
+          <div class="portrait-container">
+            <img src="me.jpg" alt="Yahya Abbasi" class="portrait">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience">
+  <section id="experience" class="experience">
     <div class="container">
-      <h2 class="section-title">Professional Experience</h2>
+      <h2 class="section-title animate">Where I've Worked</h2>
       
       <div class="experience-tabs">
         <button class="tab-btn active" data-tab="technationals">Technationals</button>
+        <button class="tab-btn" data-tab="freelance">Freelance</button>
       </div>
       
       <div class="experience-content active" id="technationals-content">
-        <h3 class="job-title">Frontend Developer</h3>
+        <h3 class="job-title">
+          <span>Frontend Developer</span>
+          <span class="job-company">@ Technationals</span>
+        </h3>
         <span class="job-period">June 2022 - March 2025</span>
         
-        <p class="job-description">
+        <p class="job-description animate">
           Developed and deployed multiple modern web applications with full frontend and backend integration, 
           focusing on creating scalable architectures and optimized user experiences.
         </p>
         
         <ul class="job-achievements">
-          <li>Designed scalable React architectures using reusable components and Git submodules, improving code reusability by 40%</li>
-          <li>Led React Query adoption for optimized API data fetching, reducing load times by 30%</li>
-          <li>Built key features including theme switching, language selection, and profile management systems</li>
-          <li>Implemented user authentication with role-based access control and protected routes</li>
-          <li>Deployed web applications on cPanel for production environments</li>
-          <li>Mentored junior developers in React, TypeScript, and best coding practices</li>
+          <li class="animate">Designed scalable React architectures using reusable components and Git submodules, improving code reusability by 40%</li>
+          <li class="animate">Led React Query adoption for optimized API data fetching, reducing load times by 30%</li>
+          <li class="animate">Built key features including theme switching, language selection, and profile management systems</li>
+          <li class="animate">Implemented user authentication with role-based access control and protected routes</li>
+          <li class="animate">Deployed web applications on cPanel for production environments</li>
+          <li class="animate">Mentored junior developers in React, TypeScript, and best coding practices</li>
+        </ul>
+      </div>
+      
+      <div class="experience-content" id="freelance-content">
+        <h3 class="job-title">
+          <span>Frontend Developer</span>
+          <span class="job-company">@ Freelance</span>
+        </h3>
+        <span class="job-period">January 2021 - Present</span>
+        
+        <p class="job-description animate">
+          Worked with various clients to build custom web applications and websites tailored to their specific needs.
+        </p>
+        
+        <ul class="job-achievements">
+          <li class="animate">Developed responsive, mobile-first websites for small businesses</li>
+          <li class="animate">Created custom React components and UI libraries for client projects</li>
+          <li class="animate">Optimized web performance, achieving Lighthouse scores above 90</li>
+          <li class="animate">Implemented SEO best practices to improve client visibility</li>
+          <li class="animate">Provided ongoing maintenance and feature updates</li>
         </ul>
       </div>
     </div>
@@ -704,10 +1184,10 @@
   <!-- Projects Section -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title animate">Things I've Built</h2>
       <div class="projects-grid">
         <!-- Project 1 -->
-        <div class="project-card">
+        <div class="project-card animate">
           <div class="project-image-container">
             <img src="proj.png" alt="Portal Web App" class="project-image">
           </div>
@@ -725,10 +1205,10 @@
               <span class="tech-tag">REST API</span>
             </div>
             <div class="project-links">
-              <a href="#" target="_blank">
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> Live Demo
               </a>
-              <a href="#" target="_blank">
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i> Source Code
               </a>
             </div>
@@ -736,7 +1216,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card">
+        <div class="project-card animate">
           <div class="project-image-container">
             <img src="comapny.png" alt="Company Website" class="project-image">
           </div>
@@ -753,8 +1233,40 @@
               <span class="tech-tag">Git Submodules</span>
             </div>
             <div class="project-links">
-              <a href="https://technationals.com/" target="_blank">
+              <a href="https://technationals.com/" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card animate">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce Dashboard" class="project-image">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">E-commerce Analytics Dashboard</h3>
+            <p class="project-description">
+              Interactive dashboard with real-time data visualization, sales tracking, and inventory management.
+              Features custom charts and export functionality.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">Redux Toolkit</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Source Code
               </a>
             </div>
           </div>
@@ -764,23 +1276,28 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="contact">
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-description">
+      <h2 class="section-title animate">Get In Touch</h2>
+      <p class="contact-description animate">
         I'm currently exploring new opportunities and would love to connect. Whether you have 
         a project in mind or just want to discuss frontend development, feel free to reach out.
       </p>
-      <a href="mailto:yahyaabbasi36@gmail.com" class="contact-btn">Email Me</a>
+      <a href="mailto:yahyaabbasi36@gmail.com" class="contact-btn animate">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
       <div class="social-links">
-        <a href="https://github.com/YahyaAbbasi1" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/YahyaAbbasi1" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="animate">
           <i class="fab fa-github"></i>
         </a>
-        <a href="#" target="_blank" aria-label="LinkedIn">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="animate">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="#" target="_blank" aria-label="Twitter">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="animate">
           <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Codepen" class="animate">
+          <i class="fab fa-codepen"></i>
         </a>
       </div>
     </div>
@@ -789,29 +1306,51 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p class="footer-text">Designed & Built by Yahya Abbasi</p>
+      <p class="footer-text animate">
+        Designed & Built by <a href="#" target="_blank">Yahya Abbasi</a> &copy; <span id="year"></span>
+      </p>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
-
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
     // Experience tabs functionality
     const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.experience-content');
     
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         // Remove active class from all buttons and content
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.experience-content').forEach(c => c.classList.remove('active'));
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
         
         // Add active class to clicked button
         btn.classList.add('active');
@@ -821,22 +1360,88 @@
         document.getElementById(`${tabId}-content`).classList.add('active');
       });
     });
-
-    // Scroll animations
+    
+    // Animate hero title underline
+    const heroTitle = document.querySelector('.hero-title');
+    const observerOptions = {
+      threshold: 0.1
+    };
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+          heroTitle.classList.add('animate');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section, .project-card').forEach(el => {
-      observer.observe(el);
+    }, observerOptions);
+    
+    observer.observe(heroTitle);
+    
+    // Scroll animations for sections
+    const animateElements = document.querySelectorAll('.animate');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     });
-
-    // Add current year to footer
-    document.querySelector('.footer-text').innerHTML += ` &copy; ${new Date().getFullYear()}`;
+    
+    animateElements.forEach(el => {
+      sectionObserver.observe(el);
+    });
+    
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Create particles
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 20;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      // Random size between 2px and 6px
+      const size = Math.random() * 4 + 2;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Random position
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.bottom = `-${size}px`;
+      
+      // Random animation duration between 10s and 20s
+      const duration = Math.random() * 10 + 10;
+      particle.style.animationDuration = `${duration}s`;
+      
+      // Random delay
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      
+      particlesContainer.appendChild(particle);
+    }
+    
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
