@@ -3,13 +3,601 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yahya Abbasi | React Frontend Developer</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Frontend developer specializing in React and modern web applications.">
+  <title>Yahya Abbasi | React & TypeScript Specialist</title>
+  <meta name="description" content="Professional Frontend Developer with 2+ years experience building scalable React applications with TypeScript, API integration, and optimized workflows.">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      /* Professional Color Palette */
+      --dark: #0a0a14;
+      --dark-gray: #1a1a2e;
+      --light: #f0f0ff;
+      --primary: #3b82f6;
+      --primary-light: #60a5fa;
+      --accent: #14b8a6;
+      --success: #10b981;
+      
+      /* Typography */
+      --heading-font: 'Space Grotesk', sans-serif;
+      --body-font: 'Inter', sans-serif;
+      
+      /* Spacing */
+      --section-padding: 120px 0;
+      --container-width: min(1100px, 90%);
+    }
 
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background-color: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: var(--section-padding);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--heading-font);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    /* Professional Typography Scale */
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    p { font-size: clamp(1rem, 1.05vw, 1.1rem); }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      width: 100%;
+      padding: 25px 0;
+      background-color: rgba(10, 10, 20, 0.98);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(240, 240, 255, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--heading-font);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--light);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      font-weight: 500;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .resume-btn {
+      background-color: var(--primary);
+      color: var(--dark);
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-left: 2rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-subtitle {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin-bottom: 1.5rem;
+      color: var(--light);
+    }
+
+    .hero-description {
+      color: rgba(240, 240, 255, 0.8);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--dark);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+
+    /* About Section */
+    .section-title {
+      color: var(--light);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-content p {
+      color: rgba(240, 240, 255, 0.8);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(140px, 200px));
+      gap: 0 20px;
+      margin-top: 1.5rem;
+    }
+
+    .skills-list li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      color: rgba(240, 240, 255, 0.7);
+      list-style: none;
+    }
+
+    .skills-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .about-image {
+      position: relative;
+      max-width: 300px;
+      margin-left: auto;
+    }
+
+    .portrait {
+      width: 100%;
+      border-radius: 5px;
+      filter: grayscale(100%) contrast(1);
+      transition: filter 0.5s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .portrait:hover {
+      filter: none;
+    }
+
+    /* Experience Section */
+    .experience-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(240, 240, 255, 0.1);
+      padding-bottom: 1rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: rgba(240, 240, 255, 0.7);
+      font-family: var(--body-font);
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .experience-content {
+      display: none;
+    }
+
+    .experience-content.active {
+      display: block;
+    }
+
+    .job-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--light);
+    }
+
+    .job-period {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .job-description {
+      color: rgba(240, 240, 255, 0.8);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .job-achievements {
+      list-style-type: none;
+    }
+
+    .job-achievements li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 1rem;
+      color: rgba(240, 240, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    .job-achievements li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--dark-gray);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(240, 240, 255, 0.05);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .project-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 1.8rem;
+    }
+
+    .project-title {
+      margin-bottom: 0.8rem;
+      color: var(--light);
+    }
+
+    .project-description {
+      color: rgba(240, 240, 255, 0.7);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .tech-tag {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 4px;
+      color: var(--primary-light);
+      font-family: var(--heading-font);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .project-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--light);
+      font-size: 0.95rem;
+    }
+
+    .project-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+    }
+
+    .contact-description {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: rgba(240, 240, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: var(--dark);
+      border-radius: 4px;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .social-links a {
+      color: var(--light);
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(240, 240, 255, 0.05);
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(240, 240, 255, 0.1);
+    }
+
+    .footer-text {
+      color: rgba(240, 240, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      :root {
+        --section-padding: 80px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        text-align: center;
+        padding-top: 100px;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        order: -1;
+        margin: 0 auto 3rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --section-padding: 60px 0;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .skills-list {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -19,9 +607,10 @@
       <a href="#" class="logo">Yahya<span>.</span></a>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a href="#" class="resume-btn">Resume</a>
+        <a href="Yahya_Abbasi_Updated_Resume.pdf" class="resume-btn" download>Resume</a>
       </div>
     </div>
   </nav>
@@ -30,15 +619,16 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <p class="hero-subtitle">FRONTEND DEVELOPER</p>
-        <h1 class="hero-title">Building digital experiences with clean code.</h1>
+        <p class="hero-subtitle">React & TypeScript Specialist</p>
+        <h1 class="hero-title">Yahya Abbasi</h1>
         <p class="hero-description">
-          I specialize in creating performant, accessible React applications with intuitive interfaces.
-          Currently focused on crafting modern web solutions.
+          Frontend Developer with 2+ years of experience building scalable web applications. 
+          I specialize in React, TypeScript, and API integration to create performant, 
+          user-friendly interfaces with modern architectures.
         </p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Let's Connect</a>
         </div>
       </div>
     </div>
@@ -51,28 +641,62 @@
       <div class="about-grid">
         <div class="about-content">
           <p>
-            Hello! I'm Yahya, a self-taught frontend developer passionate about creating exceptional digital experiences. 
-            My journey began with simple HTML/CSS experiments and has evolved into building complex React applications.
+            Hello! I'm Yahya Abbasi, a passionate Frontend Developer with professional experience 
+            building modern web applications. My journey in development began with self-learning 
+            and has grown into a career creating production-ready solutions.
           </p>
           <p>
-            I specialize in <span class="highlight">React, JavaScript</span>, and modern frontend development. 
-            What excites me most is solving real problems through clean, efficient code and intuitive interfaces.
+            At <span class="highlight">Technationals</span>, I developed and deployed multiple web applications 
+            with full frontend-backend integration, implementing features like theme customization, 
+            multi-language support, and secure authentication systems.
           </p>
           <p>
-            Here are a few technologies I've been working with recently:
+            Here are some technologies I specialize in:
           </p>
           <ul class="skills-list">
-            <li>JavaScript (ES6+)</li>
-            <li>React</li>
+            <li>React.js</li>
             <li>TypeScript</li>
-            <li>HTML5 & CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>Redux / Zustand</li>
+            <li>React Query</li>
+            <li>RESTful APIs</li>
             <li>Git & GitHub</li>
-            <li>Responsive Design</li>
+            <li>cPanel Deployment</li>
           </ul>
         </div>
         <div class="about-image">
           <img src="me.jpg" alt="Yahya Abbasi" class="portrait">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <div class="experience-tabs">
+        <button class="tab-btn active" data-tab="technationals">Technationals</button>
+      </div>
+      
+      <div class="experience-content active" id="technationals-content">
+        <h3 class="job-title">Frontend Developer</h3>
+        <span class="job-period">June 2022 - March 2025</span>
+        
+        <p class="job-description">
+          Developed and deployed multiple modern web applications with full frontend and backend integration, 
+          focusing on creating scalable architectures and optimized user experiences.
+        </p>
+        
+        <ul class="job-achievements">
+          <li>Designed scalable React architectures using reusable components and Git submodules, improving code reusability by 40%</li>
+          <li>Led React Query adoption for optimized API data fetching, reducing load times by 30%</li>
+          <li>Built key features including theme switching, language selection, and profile management systems</li>
+          <li>Implemented user authentication with role-based access control and protected routes</li>
+          <li>Deployed web applications on cPanel for production environments</li>
+          <li>Mentored junior developers in React, TypeScript, and best coding practices</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -84,39 +708,54 @@
       <div class="projects-grid">
         <!-- Project 1 -->
         <div class="project-card">
-          <img src="project1.jpg" alt="Portal Web App" class="project-image">
+          <div class="project-image-container">
+            <img src="proj.png" alt="Portal Web App" class="project-image">
+          </div>
           <div class="project-content">
-            <h3 class="project-title">Portal Web Application</h3>
+            <h3 class="project-title">Enterprise Portal Application</h3>
             <p class="project-description">
-              A comprehensive frontend interface with full CRUD functionality, user management, and role-based UI rendering.
+              A comprehensive admin portal with full CRUD functionality, user management, 
+              and role-based UI rendering. Implemented theme customization and multi-language support.
             </p>
             <div class="project-tech">
               <span class="tech-tag">React</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">CSS Modules</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React Query</span>
+              <span class="tech-tag">Ant Design</span>
+              <span class="tech-tag">REST API</span>
             </div>
             <div class="project-links">
-              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
-              <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+              <a href="#" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              <a href="#" target="_blank">
+                <i class="fab fa-github"></i> Source Code
+              </a>
             </div>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
-          <img src="project2.jpg" alt="Company Website" class="project-image">
+          <div class="project-image-container">
+            <img src="comapny.png" alt="Company Website" class="project-image">
+          </div>
           <div class="project-content">
             <h3 class="project-title">Technationals Website</h3>
             <p class="project-description">
-              Official company website with focus on performance and responsive design.
+              Official company website with focus on performance, responsive design, 
+              and seamless content management integration.
             </p>
             <div class="project-tech">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">React</span>
               <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS Modules</span>
+              <span class="tech-tag">Git Submodules</span>
             </div>
             <div class="project-links">
-              <a href="https://technationals.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+              <a href="https://technationals.com/" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>
             </div>
           </div>
         </div>
@@ -129,14 +768,20 @@
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
       <p class="contact-description">
-        I'm currently available for new opportunities. Whether you have a project in mind or just want to connect, 
-        feel free to reach out.
+        I'm currently exploring new opportunities and would love to connect. Whether you have 
+        a project in mind or just want to discuss frontend development, feel free to reach out.
       </p>
-      <a href="mailto:yahyaabbasi36@gmail.com" class="contact-btn">Say Hello</a>
+      <a href="mailto:yahyaabbasi36@gmail.com" class="contact-btn">Email Me</a>
       <div class="social-links">
-        <a href="https://github.com/YahyaAbbasi1" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com/YahyaAbbasi1" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" target="_blank" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -149,7 +794,7 @@
   </footer>
 
   <script>
-    // Simple smooth scroll for navigation
+    // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -159,7 +804,25 @@
       });
     });
 
-    // Add scroll reveal animations (optional)
+    // Experience tabs functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons and content
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.experience-content').forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(`${tabId}-content`).classList.add('active');
+      });
+    });
+
+    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -168,34 +831,12 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
+    document.querySelectorAll('section, .project-card').forEach(el => {
+      observer.observe(el);
     });
-    document.addEventListener('DOMContentLoaded', () => {
-  if (!('ontouchstart' in window)) {
-    document.body.classList.add('cursor-glow-active');
-    
-    let mouseX = 0, mouseY = 0;
-    let posX = 0, posY = 0;
-    const friction = 0.2; // Smoothness (0.1-0.3)
-    
-    const animate = () => {
-      // Smooth trailing effect
-      posX += (mouseX - posX) * friction;
-      posY += (mouseY - posY) * friction;
-      
-      document.documentElement.style.setProperty('--cursor-x', `${posX}px`);
-      document.documentElement.style.setProperty('--cursor-y', `${posY}px`);
-      requestAnimationFrame(animate);
-    };
-    animate();
-    
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-  }
-});
+
+    // Add current year to footer
+    document.querySelector('.footer-text').innerHTML += ` &copy; ${new Date().getFullYear()}`;
   </script>
 </body>
 </html>
