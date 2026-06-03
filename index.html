@@ -611,6 +611,61 @@
       .nav-inner { padding: 0 20px; }
     }
 
+    /* ── CASE STUDY ROW ── */
+    .case-study-row {
+      display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .cs-item { flex: 1; min-width: 120px; }
+    .cs-label { font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .cs-val { font-size: 13px; color: var(--text); font-weight: 500; }
+
+    /* ── ENGINEERING DEPTH ── */
+    .depth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .depth-card {
+      background: var(--surface);
+      padding: 36px 32px;
+      transition: background 0.2s;
+    }
+    .depth-card:hover { background: var(--surface2); }
+    .depth-q {
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 700;
+      color: var(--text); margin-bottom: 14px;
+      line-height: 1.3; letter-spacing: -0.3px;
+    }
+    .depth-a {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.75; font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .depth-a code {
+      background: var(--bg3); color: var(--accent2);
+      padding: 2px 6px; border-radius: 4px;
+      font-size: 13px; font-family: 'Courier New', monospace;
+    }
+    .depth-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .depth-tags span {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 11px; color: var(--faint);
+      letter-spacing: 0.3px;
+    }
+    @media (max-width: 900px) {
+      .depth-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── CAROUSEL OVERRIDES ── */
     .work-img .carousel,
     .work-img .carousel-inner,
@@ -651,8 +706,8 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#depth">Engineering</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Hire Me</a>
@@ -669,6 +724,7 @@
   <button class="mobile-close" onclick="toggleMenu()">×</button>
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#work" onclick="toggleMenu()">Work</a>
+  <a href="#depth" onclick="toggleMenu()">Engineering</a>
   <a href="#experience" onclick="toggleMenu()">Experience</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
@@ -946,8 +1002,18 @@
           <div class="work-tag">Company Website</div>
           <div class="work-title">TechNationals Official Site</div>
           <p class="work-desc">
-            Built and deployed the official company website from scratch. Owned frontend architecture, responsive layout, SEO structure, and the full production deployment pipeline.
+            No existing web presence. I was given full ownership — zero-to-deployed. Architected the component structure, built a reusable section system so the marketing team could request page changes without touching code, and handled the production deployment.
           </p>
+          <div class="case-study-row">
+            <div class="cs-item">
+              <div class="cs-label">My role</div>
+              <div class="cs-val">Sole frontend engineer</div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-label">Challenge</div>
+              <div class="cs-val">Zero → live in a single sprint</div>
+            </div>
+          </div>
           <div class="work-stack">
             <span class="work-stack-tag">React</span>
             <span class="work-stack-tag">TypeScript</span>
@@ -976,8 +1042,18 @@
           <div class="work-tag">Client Website</div>
           <div class="work-title">NEMT Platform</div>
           <p class="work-desc">
-            Business website integrated with backend systems for a transportation services client. Focused on clean UI, responsiveness, and seamless backend API integration.
+            A US-based non-emergency medical transport client needed a public-facing site integrated with their booking backend. I handled the full frontend — responsive layout, API integration, and coordinating data contracts with their backend team across timezones.
           </p>
+          <div class="case-study-row">
+            <div class="cs-item">
+              <div class="cs-label">My role</div>
+              <div class="cs-val">Frontend, API integration</div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-label">Client</div>
+              <div class="cs-val">US-based business</div>
+            </div>
+          </div>
           <div class="work-stack">
             <span class="work-stack-tag">React</span>
             <span class="work-stack-tag">REST APIs</span>
@@ -993,35 +1069,113 @@
       <!-- NDA Projects -->
       <div class="work-card fade-up" style="grid-column: 1 / -1;">
         <div style="display:flex; flex-wrap:wrap;">
-          <div class="work-img" style="width:340px; flex-shrink:0; aspect-ratio:auto; min-height:220px;">
+          <div class="work-img" style="width:340px; flex-shrink:0; aspect-ratio:auto; min-height:240px;">
             <div id="carouselNDA" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000">
               <div class="carousel-inner h-100">
                 <div class="carousel-item active h-100"><img src="assets/img/portfolio/pro1.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Confidential project"></div>
               </div>
             </div>
           </div>
-          <div style="flex:1; min-width:260px; padding:40px;">
+          <div style="flex:1; min-width:260px; padding:36px 40px; display:flex; flex-direction:column; justify-content:center;">
             <div class="work-tag">Enterprise Systems · NDA</div>
             <div class="work-title">Confidential Client Portals</div>
-            <p class="work-desc" style="margin-bottom: 0;">
-              Multiple enterprise portals built at TechNationals — authentication systems, data dashboards with role-based access, complex form workflows, and API-driven interfaces. Cannot share publicly due to NDA, but happy to walk through architecture and decision-making on a call.
+            <p class="work-desc">
+              Several enterprise portals at TechNationals — each a data-heavy SaaS interface with authentication, granular RBAC, server-synced tables, and multi-step form workflows. The kind of work where a wrong state update breaks a user's session in production. I can walk through the architecture, the hard decisions, and what I'd do differently — on a call.
             </p>
-          </div>
-          </div>
-          <div style="display:flex; gap:24px; flex-wrap:wrap; flex-shrink:0; align-items:center; padding:40px 40px 40px 0;">
-            <div style="text-align: center;">
-              <div class="work-metric-val" style="font-size: 28px;">RBAC</div>
-              <div class="work-metric-label">Auth systems</div>
+            <div style="display:flex; gap:24px; flex-wrap:wrap; margin-top:8px;">
+              <div>
+                <div class="work-metric-val green" style="font-size:20px;">RBAC</div>
+                <div class="work-metric-label">Granular role permissions</div>
+              </div>
+              <div>
+                <div class="work-metric-val" style="font-size:20px;">i18n</div>
+                <div class="work-metric-label">English + Urdu UI</div>
+              </div>
+              <div>
+                <div class="work-metric-val" style="font-size:20px;">REST</div>
+                <div class="work-metric-label">Heavy API integration</div>
+              </div>
+              <div>
+                <div class="work-metric-val" style="font-size:20px;">TQ</div>
+                <div class="work-metric-label">Server state + caching</div>
+              </div>
             </div>
-            <div style="text-align: center;">
-              <div class="work-metric-val" style="font-size: 28px;">i18n</div>
-              <div class="work-metric-label">Multilingual UI</div>
-            </div>
-            <div style="text-align: center;">
-              <div class="work-metric-val" style="font-size: 28px;">API</div>
-              <div class="work-metric-label">Heavy integration</div>
-            </div>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING DEPTH -->
+<section id="depth" style="background: var(--bg);">
+  <div class="container">
+    <div class="section-label">Under the Hood</div>
+    <h2>How I actually engineer</h2>
+    <p class="section-intro" style="margin-bottom: 64px;">
+      The questions every hiring manager asks. Answered with specifics, not buzzwords.
+    </p>
+
+    <div class="depth-grid">
+
+      <div class="depth-card fade-up">
+        <div class="depth-q">How do you handle complex state?</div>
+        <p class="depth-a">
+          I separate server state from UI state by default. TanStack Query manages all server data — caching, background refetching, optimistic updates. Redux (or Zustand) only enters when there's genuinely shared client state that multiple unrelated components need. I avoid putting server data in Redux; it creates two sources of truth that drift.
+        </p>
+        <div class="depth-tags">
+          <span>TanStack Query</span><span>Redux</span><span>Separation of concerns</span>
+        </div>
+      </div>
+
+      <div class="depth-card fade-up">
+        <div class="depth-q">How do you structure a large React codebase?</div>
+        <p class="depth-a">
+          Feature-based folders, not type-based. <code>features/invoices/</code> contains its components, hooks, types, and API calls together. Shared primitives live in <code>components/ui/</code>. This means when a feature changes, you touch one folder — not files scattered across <code>components/</code>, <code>hooks/</code>, <code>utils/</code>, <code>types/</code>.
+        </p>
+        <div class="depth-tags">
+          <span>Feature folders</span><span>Co-location</span><span>Scalable architecture</span>
+        </div>
+      </div>
+
+      <div class="depth-card fade-up">
+        <div class="depth-q">How do you handle RBAC in a frontend app?</div>
+        <p class="depth-a">
+          Permissions come from the auth token on login and get stored in context. I build a <code>usePermissions()</code> hook that components consume. Route guards check role at the router level. Individual UI elements (buttons, table actions) conditionally render based on permission flags. The backend still enforces everything — the frontend RBAC is purely UX.
+        </p>
+        <div class="depth-tags">
+          <span>Auth context</span><span>Route guards</span><span>Conditional rendering</span>
+        </div>
+      </div>
+
+      <div class="depth-card fade-up">
+        <div class="depth-q">How do you optimize a slow React app?</div>
+        <p class="depth-a">
+          First I profile, not guess. React DevTools Profiler shows which components are re-rendering and why. Typical fixes: memoize expensive computations with <code>useMemo</code>, stabilize callbacks with <code>useCallback</code>, avoid prop drilling that forces wide re-renders, virtualize long lists with <code>react-window</code>. In one case at TechNationals, moving a filter calculation out of render and into a memoized selector cut re-renders from 40/second to 4.
+        </p>
+        <div class="depth-tags">
+          <span>React Profiler</span><span>useMemo / useCallback</span><span>List virtualization</span>
+        </div>
+      </div>
+
+      <div class="depth-card fade-up">
+        <div class="depth-q">How do you handle offline data in the IMS?</div>
+        <p class="depth-a">
+          The Inventory System runs sql.js (SQLite compiled to WASM) entirely in-browser/Electron. On app load, it restores the database from a persisted binary file. All writes go to the in-memory SQLite instance immediately, then flush to disk. No network calls, no sync conflicts. It's a single source of truth that happens to live on the user's machine.
+        </p>
+        <div class="depth-tags">
+          <span>SQLite / sql.js</span><span>Electron</span><span>Offline-first architecture</span>
+        </div>
+      </div>
+
+      <div class="depth-card fade-up">
+        <div class="depth-q">What's a hard bug you solved?</div>
+        <p class="depth-a">
+          In a dashboard at TechNationals, a filter UI was causing the entire page to remount on every change instead of just re-rendering. Traced it to a context provider that was re-creating its value object on every parent render, which React treated as a new reference, invalidating every consumer. Fixed by memoizing the context value. Subtle, no console errors — just sluggish UI until you profile it.
+        </p>
+        <div class="depth-tags">
+          <span>Context optimization</span><span>Reference equality</span><span>Profiling</span>
         </div>
       </div>
 
@@ -1041,7 +1195,7 @@
         <div class="exp-role">Frontend Engineer</div>
         <div class="exp-period">2022 – 2025 · Islamabad, PK</div>
         <p class="exp-desc">
-          A software company delivering SaaS platforms, internal tools, and client portals. My first professional role — where I went from writing components to owning full frontend systems.
+          A software company delivering SaaS platforms, internal tools, and client portals. I went from writing components to owning full frontend systems — architecture decisions, code review, and production deployments included.
         </p>
       </div>
 
@@ -1049,43 +1203,36 @@
         <div class="exp-item">
           <div class="exp-bullet"></div>
           <div>
-            <div class="exp-item-title">Built and maintained production dashboards</div>
-            <p class="exp-item-text">Architected internal admin panels and client-facing portals with complex data tables, filtering, and real-time state updates using React and TanStack Query.</p>
+            <div class="exp-item-title">Architected data-heavy dashboards with complex state</div>
+            <p class="exp-item-text">Built admin panels handling 1,000+ row tables with server-side pagination, multi-column filtering, and real-time updates. Introduced TanStack Query for server-state — eliminated redundant API calls and made cache invalidation explicit and predictable.</p>
           </div>
         </div>
         <div class="exp-item">
           <div class="exp-bullet"></div>
           <div>
-            <div class="exp-item-title">Reduced API overhead through smart caching</div>
-            <p class="exp-item-text">Introduced server-state caching strategies with TanStack Query, reducing unnecessary API calls and improving perceived performance across multiple projects.</p>
+            <div class="exp-item-title">Designed and shipped a full RBAC system</div>
+            <p class="exp-item-text">Built permission-based access from scratch: auth context, route guards, and component-level conditional rendering. Supported 4+ distinct user roles with different data visibility and action permissions.</p>
           </div>
         </div>
         <div class="exp-item">
           <div class="exp-bullet"></div>
           <div>
-            <div class="exp-item-title">Implemented role-based access control</div>
-            <p class="exp-item-text">Designed and built RBAC systems with granular permission layers — different views, actions, and data access based on user roles.</p>
+            <div class="exp-item-title">Built a shared component library used across 5+ projects</div>
+            <p class="exp-item-text">Designed reusable UI primitives — data tables, form fields, modals, and layout shells — with consistent prop APIs. New project bootstrapping went from days to hours once the library existed.</p>
           </div>
         </div>
         <div class="exp-item">
           <div class="exp-bullet"></div>
           <div>
-            <div class="exp-item-title">Built reusable component libraries</div>
-            <p class="exp-item-text">Created shared component systems used across multiple projects, cutting development time for new features and ensuring UI consistency.</p>
+            <div class="exp-item-title">Owned end-to-end delivery: design handoff to production</div>
+            <p class="exp-item-text">Handled the full frontend lifecycle on multiple projects: breaking Figma designs into component trees, building and testing, coordinating data contracts with backend, deploying, and maintaining through post-launch bugs.</p>
           </div>
         </div>
         <div class="exp-item">
           <div class="exp-bullet"></div>
           <div>
-            <div class="exp-item-title">Owned production deployments</div>
-            <p class="exp-item-text">Handled deployment workflows, version control branching strategies, and coordination with backend teams on data contracts and API design.</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-bullet"></div>
-          <div>
-            <div class="exp-item-title">Delivered multilingual UI</div>
-            <p class="exp-item-text">Implemented internationalization and theming support across enterprise portals, supporting both English and Urdu interfaces.</p>
+            <div class="exp-item-title">Implemented multilingual UI (English + Urdu)</div>
+            <p class="exp-item-text">Built i18n support into enterprise portals including RTL layout adjustments for Urdu. Used react-i18next with a structured translation key system that non-developers could update without touching code.</p>
           </div>
         </div>
       </div>
