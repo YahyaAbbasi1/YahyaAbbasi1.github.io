@@ -1,797 +1,1257 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Yahya Abbasi</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yahya Abbasi — Frontend Engineer</title>
+  <meta name="description" content="Frontend engineer specializing in React dashboards, SaaS portals, and offline desktop apps. 2+ years building production systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    :root {
+      --bg: #0c0c0e;
+      --bg2: #111114;
+      --bg3: #16161a;
+      --surface: #1c1c21;
+      --surface2: #222228;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text: #f0eff4;
+      --muted: #888894;
+      --faint: #444450;
+      --accent: #6c63ff;
+      --accent2: #9d97ff;
+      --accent-glow: rgba(108, 99, 255, 0.15);
+      --green: #3ecf8e;
+      --amber: #f59e0b;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
 
-  <!-- =======================================================
-  * Template Name: SnapFolio
-  * Template URL: https://bootstrapmade.com/snapfolio-bootstrap-portfolio-template/
-  * Updated: Jul 21 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 2px; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 120px 0; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 0;
+      background: rgba(12, 12, 14, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-logo span { color: var(--accent2); }
+    .nav-links {
+      display: flex; gap: 36px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 14px; font-weight: 400;
+      transition: color 0.2s;
+      letter-spacing: 0.2px;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff; text-decoration: none;
+      padding: 9px 20px; border-radius: 8px;
+      font-size: 14px; font-weight: 500;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: #7c74ff; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 180px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-noise {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(108,99,255,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(62,207,142,0.05) 0%, transparent 60%);
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 7vw, 82px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    h1 .line2 {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+    }
+    h1 .accent-word {
+      color: var(--accent2);
+      -webkit-text-stroke: 0;
+    }
+    .hero-desc {
+      font-size: 18px; line-height: 1.7;
+      color: var(--muted); max-width: 560px;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff; text-decoration: none;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 15px; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: #7c74ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(108,99,255,0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted); text-decoration: none;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 15px; font-weight: 400;
+      border: 1px solid var(--border2);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { color: var(--text); border-color: var(--faint); }
+    .hero-metrics {
+      display: flex; gap: 48px; margin-top: 72px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .metric-val {
+      font-family: var(--font-display);
+      font-size: 36px; font-weight: 800;
+      color: var(--text); letter-spacing: -1px;
+    }
+    .metric-val span { color: var(--accent2); }
+    .metric-label {
+      font-size: 13px; color: var(--muted);
+      margin-top: 4px; font-weight: 300;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 24px; height: 1px;
+      background: var(--accent2);
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -1.5px;
+      color: var(--text); line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-intro {
+      font-size: 17px; color: var(--muted);
+      max-width: 520px; line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+      margin-top: 64px;
+    }
+    .about-body p {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.8; margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .about-body p strong { color: var(--text); font-weight: 500; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-facts {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .fact-cell {
+      background: var(--surface);
+      padding: 28px 24px;
+    }
+    .fact-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--accent-glow);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .fact-icon svg { width: 18px; height: 18px; color: var(--accent2); }
+    .fact-title {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 6px; font-weight: 400;
+    }
+    .fact-val {
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── STACK ── */
+    #stack { background: var(--bg); }
+    .stack-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .stack-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .stack-pill:hover {
+      border-color: var(--border2);
+      background: var(--surface2);
+    }
+    .stack-pill-name {
+      font-size: 14px; font-weight: 500; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .stack-pill-desc {
+      font-size: 12px; color: var(--muted); font-weight: 300;
+    }
+    .stack-pill-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      margin-bottom: 12px;
+    }
+    .dot-blue { background: #60a5fa; }
+    .dot-cyan { background: #22d3ee; }
+    .dot-purple { background: var(--accent2); }
+    .dot-green { background: var(--green); }
+    .dot-orange { background: #fb923c; }
+    .dot-amber { background: var(--amber); }
+    .dot-red { background: #f87171; }
+    .dot-gray { background: var(--muted); }
+
+    /* ── WORK ── */
+    #work { background: var(--bg2); }
+    .work-header { margin-bottom: 64px; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .work-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .work-card:hover {
+      border-color: var(--border2);
+      transform: translateY(-4px);
+    }
+    .work-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .work-img {
+      background: var(--bg3);
+      aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .work-card.featured .work-img {
+      flex: 1; aspect-ratio: auto; min-height: 280px;
+    }
+    .work-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 13px; color: var(--faint);
+      letter-spacing: 1px;
+    }
+    .work-img-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--bg3) 0%, var(--surface) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .work-img-icon {
+      font-family: var(--font-display);
+      font-size: 64px; font-weight: 800;
+      color: rgba(255,255,255,0.04); letter-spacing: -2px;
+      user-select: none;
+    }
+    .work-img-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 5px 12px; font-size: 11px;
+      color: var(--muted); font-weight: 500;
+    }
+    .work-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .work-card.featured .work-body { flex: 1; padding: 40px; }
+    .work-tag {
+      display: inline-block;
+      background: var(--accent-glow);
+      color: var(--accent2);
+      border: 1px solid rgba(108,99,255,0.25);
+      border-radius: 100px;
+      padding: 4px 12px; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .work-title {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.5px;
+      margin-bottom: 12px; line-height: 1.2;
+    }
+    .work-card.featured .work-title { font-size: 28px; }
+    .work-desc {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.7; margin-bottom: 24px;
+      font-weight: 300; flex: 1;
+    }
+    .work-metrics {
+      display: flex; gap: 24px;
+      margin-bottom: 24px;
+    }
+    .work-metric-val {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.5px;
+    }
+    .work-metric-val.green { color: var(--green); }
+    .work-metric-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .work-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .work-stack-tag {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px; color: var(--muted);
+    }
+    .work-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent2); font-size: 14px;
+      text-decoration: none; font-weight: 500;
+      transition: gap 0.2s;
+    }
+    .work-link:hover { gap: 10px; }
+    .work-link svg { width: 14px; height: 14px; }
+    .nda-notice {
+      font-size: 12px; color: var(--faint);
+      font-style: italic;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+    .exp-grid { display: grid; grid-template-columns: 300px 1fr; gap: 80px; margin-top: 64px; }
+    .exp-sidebar { position: sticky; top: 120px; height: fit-content; }
+    .exp-company {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 700;
+      color: var(--text); margin-bottom: 8px; letter-spacing: -0.5px;
+    }
+    .exp-role { font-size: 14px; color: var(--accent2); font-weight: 500; margin-bottom: 6px; }
+    .exp-period { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .exp-desc { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .exp-items { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 24px 1fr; gap: 20px; align-items: start;
+    }
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-bullet {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      margin-top: 6px;
+    }
+    .exp-item-title { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .exp-item-text { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--bg2); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      margin-top: 56px;
+    }
+    .service-item {
+      background: var(--surface); padding: 40px 32px;
+      transition: background 0.2s;
+    }
+    .service-item:hover { background: var(--surface2); }
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: var(--faint); margin-bottom: 24px;
+    }
+    h3 {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.3px;
+      margin-bottom: 12px; line-height: 1.3;
+    }
+    .service-desc { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+    .contact-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; margin-top: 64px; align-items: start;
+    }
+    .contact-tagline {
+      font-size: 28px; font-weight: 300;
+      color: var(--muted); line-height: 1.5;
+      margin-bottom: 48px;
+    }
+    .contact-tagline strong { color: var(--text); font-weight: 600; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 18px; height: 18px; color: var(--accent2); }
+    .contact-item-label { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+    .contact-item-val {
+      font-size: 15px; color: var(--text);
+      text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-item-val:hover { color: var(--accent2); }
+    .contact-form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 40px;
+    }
+    .form-group { margin-bottom: 20px; }
+    label {
+      display: block;
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 8px; font-weight: 500;
+    }
+    input, textarea {
+      width: 100%; background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px; padding: 12px 16px;
+      outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    input:focus, textarea:focus { border-color: var(--accent); }
+    input::placeholder, textarea::placeholder { color: var(--faint); }
+    textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px; font-size: 15px; font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: #7c74ff; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      background: var(--bg);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 13px; color: var(--faint); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none; cursor: pointer;
+      background: none; border: none;
+      color: var(--text); padding: 4px;
+    }
+    .hamburger svg { width: 22px; height: 22px; }
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: var(--bg2);
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 28px; font-weight: 700;
+      color: var(--text); text-decoration: none;
+      letter-spacing: -1px;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent2); }
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: none;
+      color: var(--muted); cursor: pointer; font-size: 28px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      section { padding: 80px 0; }
+      #hero { padding: 140px 0 80px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card.featured { flex-direction: column; }
+      .work-card.featured .work-img { min-height: 200px; }
+      .exp-grid { grid-template-columns: 1fr; gap: 0; }
+      .exp-sidebar { position: static; margin-bottom: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .hero-metrics { gap: 32px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      h1 { letter-spacing: -1px; }
+      .hero-metrics { flex-direction: column; gap: 24px; }
+      .about-facts { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .work-metrics { gap: 16px; }
+      .nav-inner { padding: 0 20px; }
+    }
+
+    /* ── CAROUSEL OVERRIDES ── */
+    .work-img .carousel,
+    .work-img .carousel-inner,
+    .work-img .carousel-item {
+      height: 100%;
+      width: 100%;
+    }
+    .work-img .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .work-card.featured .work-img {
+      flex: 1;
+      aspect-ratio: auto;
+      min-height: 300px;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
+<body>
 
-<body class="index-page">
-
-  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="header-container d-flex flex-column align-items-start">
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-          <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-          <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-          <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-          <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
-          <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="social-links text-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      </div>
-
-    </div>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-<section id="hero" class="hero section">
-
-  <div class="hero-content">
-    <div class="container">
-      <div class="row align-items-center">
-
-        <!-- Left Content -->
-        <div class="col-lg-6">
-          <div class="hero-text">
-
-            <div class="hero-badge">Enterprise & SaaS Frontend</div>
-
-            <h1>Frontend Engineer</h1>
-
-            <h2>Building production-grade web applications</h2>
-
-            <p class="description">
-              Frontend engineer with 2+ years of experience delivering real-world SaaS platforms, admin dashboards, and offline-first systems. Focused on scalable UI architecture, performance optimization, and long-term maintainability using React and TypeScript.
-            </p>
-
-            <div class="tech-preview">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">TanStack Query</span>
-              <span class="tech-tag">Ant Design</span>
-            </div>
-
-            <div class="social-links">
-              <a href="mailto:yahyaabbasi36@gmail.com" title="Email">
-                <i class="bi bi-envelope"></i>
-              </a>
-              <a href="https://github.com/yahyaabbasi1" target="_blank" title="GitHub">
-                <i class="bi bi-github"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Right Visual -->
-        <div class="col-lg-6">
-          <div class="hero-visual">
-            <div class="profile-container">
-              <div class="profile-background"></div>
-              <img 
-                src="assets/img/profile/image.png" 
-                alt="Yahya Abbasi - Frontend Engineer" 
-                class="profile-image"
-              >
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">YA<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </div>
+</nav>
 
-</section>
-<!-- /Hero Section -->
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">×</button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#work" onclick="toggleMenu()">Work</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
-    <!-- About Section -->
-<section id="about" class="about section">
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-grid-lines"></div>
   <div class="container">
+    <div class="hero-content">
 
-    <div class="row">
-
-      <!-- Profile Card -->
-      <div class="col-lg-5">
-        <div class="profile-card">
-          <div class="profile-header">
-            <div class="profile-image">
-              <img src="assets/img/profile/image.png" alt="Profile Image" class="img-fluid">
-            </div>
-            <div class="profile-badge">
-              <i class="bi bi-check-circle-fill"></i>
-            </div>
-          </div>
-
-          <div class="profile-content">
-            <h3>Yahya Abbasi</h3>
-            <p class="profession">Frontend Engineer</p>
-
-            <div class="contact-links">
-              <a href="mailto:yahyaabbasi36@gmail.com" class="contact-item">
-                <i class="bi bi-envelope"></i>
-                yahyaabbasi36@gmail.com
-              </a>
-              <a href="tel:+923701882752" class="contact-item">
-                <i class="bi bi-telephone"></i>
-                +92 370 1882752
-              </a>
-              <div class="contact-item">
-                <i class="bi bi-geo-alt"></i>
-                Pakistan (Remote & On-site)
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Available for freelance projects · Remote
       </div>
 
-      <!-- About Content -->
-      <div class="col-lg-7">
-        <div class="about-content">
+      <h1>
+        I build React apps<br>
+        <span class="line2">clients <span class="accent-word">ship</span></span>
+      </h1>
 
-          <div class="section-header">
-            <span class="badge-text">Professional Overview</span>
-            <h2>Frontend engineering focused on real-world systems</h2>
-          </div>
+      <p class="hero-desc">
+        Frontend engineer with <strong>2+ years shipping production systems</strong> — SaaS dashboards, enterprise portals, and offline-first desktop apps. Based in Pakistan, working with clients worldwide.
+      </p>
 
-          <div class="description">
-            <p>
-              Frontend engineer with 2+ years of professional experience building and maintaining production-grade web applications. Strong focus on scalable UI architecture, state management, performance optimization, and long-term maintainability.
-            </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">
+          See My Work
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="mailto:yahyaabbasi36@gmail.com" class="btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Get in Touch
+        </a>
+      </div>
 
-            <p>
-              At <strong>TechNationals</strong>, responsible for architecting and delivering internal dashboards, client-facing portals, and the company’s official website. Work included complex CRUD systems, role-based access, API-heavy interfaces, and reusable component libraries used across multiple projects.
-            </p>
-
-            <p>
-              Independently designed and built an <strong>offline-first Inventory Management System</strong> using React, Electron, and SQLite, supporting purchase flows, sales workflows, reporting dashboards, and persistent local storage without network dependency.
-            </p>
-          </div>
-
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number">2+</div>
-              <div class="stat-label">Years Production Experience</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">10+</div>
-              <div class="stat-label">Internal & Client Systems Delivered</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Production-Oriented Development</div>
-            </div>
-          </div>
-
-          <div class="details-grid">
-            <div class="detail-row">
-              <div class="detail-item">
-                <span class="detail-label">Core Focus</span>
-                <span class="detail-value">SaaS Frontend, Admin Dashboards, Offline Systems</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Primary Stack</span>
-                <span class="detail-value">React, TypeScript, TanStack Query, Ant Design</span>
-              </div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-item">
-                <span class="detail-label">Experience Type</span>
-                <span class="detail-value">Professional, Production Environments</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Languages</span>
-                <span class="detail-value">English, Urdu</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="cta-section">
-            <a href="assets/Resume.pdf" class="btn btn-primary" download>
-              <i class="bi bi-download"></i>
-              Download Resume
-            </a>
-          </div>
-
+      <div class="hero-metrics">
+        <div>
+          <div class="metric-val">2<span>+</span></div>
+          <div class="metric-label">Years in production</div>
+        </div>
+        <div>
+          <div class="metric-val">10<span>+</span></div>
+          <div class="metric-label">Systems delivered</div>
+        </div>
+        <div>
+          <div class="metric-val">3</div>
+          <div class="metric-label">Side projects live</div>
         </div>
       </div>
 
     </div>
-
   </div>
 </section>
 
-<!-- /About Section -->
-
-    <!-- Stats Section -->
-<section id="tech-stack" class="stats section light-background">
+<!-- ABOUT -->
+<section id="about">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="stats-wrapper">
+    <div class="section-label">About</div>
+    <h2>The engineer behind the code</h2>
 
-          <div class="stats-item">
-            <div class="icon-wrapper"><i class="bi bi-filetype-html"></i></div>
-            <p>Semantic HTML & Modern CSS (Responsive, Accessible)</p>
+    <div class="about-grid">
+      <div class="about-body fade-up">
+        <p>
+          I'm a frontend engineer at <strong>TechNationals</strong> in Islamabad, where I architect and deliver internal dashboards, client-facing portals, and production web systems used by real businesses daily.
+        </p>
+        <p>
+          My focus is on the hard parts of frontend work: <strong>complex data tables, role-based access systems, API-heavy interfaces, and state that doesn't break</strong>. I care about code that's maintainable six months from now — not just code that works today.
+        </p>
+        <p>
+          Outside of my day job, I built a fully <strong>offline-first Inventory Management System</strong> — a complete Electron desktop app with SQLite, purchase flows, sales workflows, and reporting dashboards. That project exists because I wanted to prove I could ship a full product end-to-end.
+        </p>
+        <p>
+          I communicate clearly in English, meet deadlines, and treat client projects like they matter — because they do.
+        </p>
+      </div>
+
+      <div class="about-facts fade-up">
+        <div class="fact-cell">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
           </div>
-
-          <div class="stats-item">
-            <div class="icon-wrapper"><i class="bi bi-filetype-js"></i></div>
-            <p>JavaScript & TypeScript (Production-Scale)</p>
+          <div class="fact-title">Currently at</div>
+          <div class="fact-val">TechNationals</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
-
-          <div class="stats-item">
-            <div class="icon-wrapper"><i class="bi bi-gear"></i></div>
-            <p>React Ecosystem (State, Server Data, Performance)</p>
+          <div class="fact-title">Experience</div>
+          <div class="fact-val">2+ years pro</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-
-          <div class="stats-item">
-            <div class="icon-wrapper"><i class="bi bi-palette"></i></div>
-            <p>Ant Design & Enterprise UI Systems</p>
+          <div class="fact-title">Location</div>
+          <div class="fact-val">Islamabad, PK</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
-
-          <div class="stats-item">
-            <div class="icon-wrapper"><i class="bi bi-window-desktop"></i></div>
-            <p>Electron (Offline-First Desktop Applications)</p>
+          <div class="fact-title">Languages</div>
+          <div class="fact-val">English, Urdu</div>
+        </div>
+        <div class="fact-cell" style="grid-column: 1 / -1;">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
-
-          <div class="stats-item">
-            <div class="icon-wrapper"><i class="bi bi-database"></i></div>
-            <p>Local & Remote Data Management (SQL, APIs)</p>
-          </div>
-
+          <div class="fact-title">Work type</div>
+          <div class="fact-val">Remote freelance · Full-time roles · Contract</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-    <!-- Skills Section -->
- <section id="skills" class="skills section">
-
-  <div class="container section-title">
-    <h2>Technical Capabilities</h2>
-    <p>What I actually use in production environments</p>
-  </div>
-
+<!-- STACK -->
+<section id="stack">
   <div class="container">
-    <div class="row">
-
-      <div class="col-lg-6">
-        <div class="skills-category">
-          <h3>Frontend Engineering</h3>
-          <ul>
-            <li>Component-driven architecture with React</li>
-            <li>Type-safe development using TypeScript</li>
-            <li>Complex forms, tables, dashboards, and filters</li>
-            <li>Performance optimization and memoization</li>
-            <li>Responsive and accessible UI implementation</li>
-          </ul>
-        </div>
+    <div class="stack-header">
+      <div>
+        <div class="section-label">Tech Stack</div>
+        <h2>What I actually use</h2>
       </div>
+      <p class="section-intro" style="max-width: 360px;">Every tool listed here has been used in production — not just tutorials.</p>
+    </div>
 
-      <div class="col-lg-6">
-        <div class="skills-category">
-          <h3>State, Data & Tooling</h3>
-          <ul>
-            <li>Server-state management with TanStack Query</li>
-            <li>Global state with Redux where required</li>
-            <li>REST API integration and error handling</li>
-            <li>Offline data persistence using SQL.js</li>
-            <li>Git-based workflows and production deployments</li>
-          </ul>
-        </div>
+    <div class="stack-grid">
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-blue"></div>
+        <div class="stack-pill-name">React</div>
+        <div class="stack-pill-desc">Component architecture</div>
       </div>
-
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-blue"></div>
+        <div class="stack-pill-name">TypeScript</div>
+        <div class="stack-pill-desc">Type-safe development</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-purple"></div>
+        <div class="stack-pill-name">TanStack Query</div>
+        <div class="stack-pill-desc">Server state & caching</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-purple"></div>
+        <div class="stack-pill-name">Redux</div>
+        <div class="stack-pill-desc">Global state management</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-cyan"></div>
+        <div class="stack-pill-name">Ant Design</div>
+        <div class="stack-pill-desc">Enterprise UI system</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-amber"></div>
+        <div class="stack-pill-name">JavaScript</div>
+        <div class="stack-pill-desc">Core language</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-orange"></div>
+        <div class="stack-pill-name">Electron</div>
+        <div class="stack-pill-desc">Desktop apps</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-green"></div>
+        <div class="stack-pill-name">SQLite / sql.js</div>
+        <div class="stack-pill-desc">Offline data storage</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-red"></div>
+        <div class="stack-pill-name">REST APIs</div>
+        <div class="stack-pill-desc">Integration & data fetching</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-gray"></div>
+        <div class="stack-pill-name">HTML / CSS</div>
+        <div class="stack-pill-desc">Semantic & responsive</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-gray"></div>
+        <div class="stack-pill-name">Git</div>
+        <div class="stack-pill-desc">Version control</div>
+      </div>
+      <div class="stack-pill fade-up">
+        <div class="stack-pill-dot dot-blue"></div>
+        <div class="stack-pill-name">Vite / CRA</div>
+        <div class="stack-pill-desc">Build tooling</div>
+      </div>
     </div>
   </div>
-
 </section>
-<!-- /Skills Section -->
 
-    <!-- Resume Section -->
-<section id="resume" class="resume section">
-
+<!-- WORK -->
+<section id="work">
   <div class="container">
+    <div class="work-header">
+      <div class="section-label">Portfolio</div>
+      <h2>Selected work</h2>
+      <p class="section-intro">Real projects. Real users. Real outcomes.</p>
+    </div>
 
-    <div class="row gy-4">
+    <div class="work-grid">
 
-      <div class="col-lg-4">
-        <div class="resume-side">
-          <h3>Professional Summary</h3>
-          <p>
-            Frontend engineer with 2+ years of experience building production-grade web and desktop applications. 
-            Specialized in scalable UI architecture, data-heavy interfaces, and enterprise systems.
+      <!-- Featured: Inventory App -->
+      <div class="work-card featured fade-up">
+        <div class="work-img">
+          <div id="carouselInventory" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="2800">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100"><img src="assets/img/portfolio/pr1.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 1"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr2.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 2"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr3.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 3"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr4.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 4"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr5.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 5"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr6.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 6"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr7.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 7"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr8.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 8"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr9.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 9"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr10.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 10"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr11.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 11"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/pr12.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Inventory 12"></div>
+            </div>
+          </div>
+          <div class="work-img-badge">Side Project · 2024</div>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">Offline Desktop App</div>
+          <div class="work-title">Inventory Management System</div>
+          <p class="work-desc">
+            A fully offline-first desktop application built with React and Electron. Handles purchase orders, sales workflows, inventory tracking, and reporting — all without a network connection. Uses SQLite via sql.js for persistent local storage.
           </p>
-
-          <h3 class="mt-4">Contact</h3>
-          <ul class="contact-info list-unstyled">
-            <li><i class="bi bi-geo-alt"></i> Pakistan (Remote / On-site)</li>
-            <li><i class="bi bi-envelope"></i> yahyaabbasi36@gmail.com</li>
-            <li><i class="bi bi-phone"></i> +92 370 1882752</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-lg-8 ps-lg-5">
-
-        <div class="resume-section">
-          <h3>Professional Experience</h3>
-
-          <div class="resume-item">
-            <h4>Frontend Engineer</h4>
-            <h5>2022 – 2025</h5>
-            <p class="company">TechNationals</p>
-            <ul>
-              <li>Built and maintained internal dashboards and client-facing portals</li>
-              <li>Architected scalable React applications with reusable components</li>
-              <li>Improved API performance using caching and server-state strategies</li>
-              <li>Implemented role-based access, multilingual UI, and theming</li>
-              <li>Collaborated with backend teams on data contracts and workflows</li>
-              <li>Handled production deployments and version control workflows</li>
-            </ul>
+          <div class="work-metrics">
+            <div>
+              <div class="work-metric-val green">100%</div>
+              <div class="work-metric-label">Offline capable</div>
+            </div>
+            <div>
+              <div class="work-metric-val">12</div>
+              <div class="work-metric-label">Feature screens</div>
+            </div>
+            <div>
+              <div class="work-metric-val">0</div>
+              <div class="work-metric-label">Backend required</div>
+            </div>
           </div>
+          <div class="work-stack">
+            <span class="work-stack-tag">React</span>
+            <span class="work-stack-tag">Electron</span>
+            <span class="work-stack-tag">SQLite</span>
+            <span class="work-stack-tag">TypeScript</span>
+            <span class="work-stack-tag">Ant Design</span>
+          </div>
+          <span class="work-link" style="cursor:default">
+            Available on request
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+          </span>
         </div>
-
-        <div class="resume-section">
-          <h3>Key Contributions</h3>
-          <ul>
-            <li>Reduced API latency through optimized data fetching</li>
-            <li>Delivered multiple production systems used by real businesses</li>
-            <li>Designed reusable UI patterns across projects</li>
-            <li>Maintained stability during live production releases</li>
-          </ul>
-        </div>
-
       </div>
-
-    </div>
-  </div>
-
-</section>
-<!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Portfolio</h2>
-    <p>Here are some of my featured projects. Due to company policies, certain portals are not publicly accessible, but I can walk you through them during a discussion.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
       <!-- TechNationals Website -->
-    <div class="col-lg-6 col-md-6 portfolio-item">
-  <div class="portfolio-wrap">
-
-    <!-- Auto slideshow, no buttons -->
-    <div id="carouselTechNationals" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/img/portfolio/proj1.png" class="d-block w-100" alt="Project Image 1">
+      <div class="work-card fade-up">
+        <div class="work-img">
+          <div id="carouselTechNationals" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100"><img src="assets/img/portfolio/proj1.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="TechNationals 1"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/proj2.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="TechNationals 2"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/proj3.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="TechNationals 3"></div>
+            </div>
+          </div>
+          <div class="work-img-badge">Enterprise · Live</div>
         </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/proj2.png" class="d-block w-100" alt="Project Image 2">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/proj3.png" class="d-block w-100" alt="Project Image 3">
-        </div>
-      </div>
-    </div>
-    <!-- End slideshow -->
-
-    <div class="portfolio-info">
-      <div class="content">
-       <span class="category">Enterprise Website</span>
-<h4>TechNationals</h4>
-<p>
-Official company website built and deployed from scratch.
-Owned frontend architecture, responsive UI, SEO structure, and production deployment.
-</p>
-
-        <div class="portfolio-links">
-          <!-- Lightbox (first image only) -->
-          <a href="assets/img/portfolio/proj1.png" class="glightbox" data-gallery="technationals" title="TechNationals Website"><i class="bi bi-plus-lg"></i></a>
-
-          <!-- External link -->
-          <a href="https://technationals.com/" target="_blank" title="Visit Website"><i class="bi bi-arrow-right"></i></a>
+        <div class="work-body">
+          <div class="work-tag">Company Website</div>
+          <div class="work-title">TechNationals Official Site</div>
+          <p class="work-desc">
+            Built and deployed the official company website from scratch. Owned frontend architecture, responsive layout, SEO structure, and the full production deployment pipeline.
+          </p>
+          <div class="work-stack">
+            <span class="work-stack-tag">React</span>
+            <span class="work-stack-tag">TypeScript</span>
+            <span class="work-stack-tag">CSS</span>
+          </div>
+          <a href="https://technationals.com/" target="_blank" class="work-link">
+            Visit live site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<!-- End Portfolio Item -->
 
-  <div class="col-lg-6 col-md-6 portfolio-item">
-  <div class="portfolio-wrap">
-
-    <!-- Auto slideshow -->
-    <div id="carouselNEMT" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/img/portfolio/p1.png" class="d-block w-100" alt="NEMT Website Image 1">
+      <!-- NEMT Platform -->
+      <div class="work-card fade-up">
+        <div class="work-img">
+          <div id="carouselNEMT" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100"><img src="assets/img/portfolio/p1.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="NEMT 1"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/p2.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="NEMT 2"></div>
+              <div class="carousel-item h-100"><img src="assets/img/portfolio/p3.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="NEMT 3"></div>
+            </div>
+          </div>
+          <div class="work-img-badge">Client · Live</div>
         </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/p2.png" class="d-block w-100" alt="NEMT Website Image 2">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/p3.png" class="d-block w-100" alt="NEMT Website Image 3">
+        <div class="work-body">
+          <div class="work-tag">Client Website</div>
+          <div class="work-title">NEMT Platform</div>
+          <p class="work-desc">
+            Business website integrated with backend systems for a transportation services client. Focused on clean UI, responsiveness, and seamless backend API integration.
+          </p>
+          <div class="work-stack">
+            <span class="work-stack-tag">React</span>
+            <span class="work-stack-tag">REST APIs</span>
+            <span class="work-stack-tag">Bootstrap</span>
+          </div>
+          <a href="https://nemt.technationals.com/" target="_blank" class="work-link">
+            View project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
         </div>
       </div>
-    </div>
-
-    <div class="portfolio-info">
-      <div class="content">
-      <span class="category">Client Website</span>
-<h4>NEMT Platform</h4>
-<p>
-Business website integrated with backend systems.
-Focused on clean UI, responsiveness, and production readiness.
-</p>
-
-        <div class="portfolio-links">
-          <a href="assets/img/portfolio/nemt.webp" class="glightbox" data-gallery="nemt" title="NEMT Website"><i class="bi bi-plus-lg"></i></a>
-          <a href="https://nemt.technationals.com/" target="_blank" title="Visit Website"><i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-      <!-- Inventory Management Software -->
-<div class="col-lg-6 col-md-6 portfolio-item">
-  <div class="portfolio-wrap">
-
-    <!-- Auto slideshow -->
-    <div id="carouselInventory" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/img/portfolio/pr1.png" class="d-block w-100" alt="Inventory Image 1">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr3.png" class="d-block w-100" alt="Inventory Image 2">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr2.png" class="d-block w-100" alt="Inventory Image 3">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr4.png" class="d-block w-100" alt="Inventory Image 4">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr5.png" class="d-block w-100" alt="Inventory Image 5">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr6.png" class="d-block w-100" alt="Inventory Image 6">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr7.png" class="d-block w-100" alt="Inventory Image 7">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr8.png" class="d-block w-100" alt="Inventory Image 8">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr9.png" class="d-block w-100" alt="Inventory Image 9">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr10.png" class="d-block w-100" alt="Inventory Image 10">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr11.png" class="d-block w-100" alt="Inventory Image 11">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/portfolio/pr12.png" class="d-block w-100" alt="Inventory Image 12">
-        </div>
-      </div>
-    </div>
-
-    <div class="portfolio-info">
-      <div class="content">
-     <span class="category">Offline Desktop Application</span>
-<h4>Inventory Management System</h4>
-<p>
-Offline-first business application built with React and Electron.
-Implements local SQL database, sales & purchase workflows, reporting dashboards,
-and persistent data without network dependency.
-</p>
-
-        <div class="portfolio-links">
-          <a href="assets/img/portfolio/inventory.webp" class="glightbox" data-gallery="inventory" title="Inventory Management System"><i class="bi bi-plus-lg"></i></a>
-          <a href="#" title="Details on Request"><i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End Portfolio Item -->
 
       <!-- NDA Projects -->
-<div class="col-lg-6 col-md-6 portfolio-item">
-  <div class="portfolio-wrap">
-
-    <!-- Single screenshot carousel -->
-    <div id="carouselNDA" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/img/portfolio/pro1.png" class="d-block w-100" alt="Confidential Project Screenshot">
-        </div>
-      </div>
-    </div>
-
-    <div class="portfolio-info">
-      <div class="content">
-      <span class="category">Enterprise Systems</span>
-<h4>Confidential Client Portals</h4>
-<p>
-Worked on internal enterprise portals involving authentication, dashboards,
-and API-driven workflows. Details restricted due to NDA.
-</p>
-
-        <div class="portfolio-links">
-          <a href="assets/img/portfolio/pro1.png" class="glightbox" data-gallery="nda" title="Confidential Project Screenshot"><i class="bi bi-plus-lg"></i></a>
-          <a href="#" title="Details Restricted"><i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-<!-- End Portfolio Item -->
-
-    </div><!-- End Portfolio Container -->
-
-  </div>
-</section><!-- /Portfolio Section -->
-
-
-    <!-- Services Section -->
-<section id="services" class="services section">
-
-  <div class="container section-title">
-    <h2>What I Build</h2>
-    <p>Types of systems I have delivered in real environments</p>
-  </div>
-
-  <div class="container">
-    <div class="row justify-content-center">
-
-      <div class="col-lg-4 col-md-6">
-        <div class="service-card">
-          <h3>Enterprise Frontend Systems</h3>
-          <p>Dashboards, admin panels, and internal tools built with React and TypeScript.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="service-card">
-          <h3>SaaS & Web Portals</h3>
-          <p>API-driven web applications with authentication, roles, and data workflows.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <div class="service-card">
-          <h3>Offline Desktop Applications</h3>
-          <p>Electron-based systems with local databases and persistent storage.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-<!-- /Services Section -->
-
-
-    <!-- Testimonials Section -->
-
-
-    <!-- Contact Section -->
-<section id="contact" class="contact section">
-
-  <!-- Section Title -->
-  <div class="container section-title">
-    <h2>Contact</h2>
-    <p>For frontend engineering roles, projects, or technical discussions</p>
-  </div>
-  <!-- End Section Title -->
-
-  <div class="container">
-    <div class="row g-4 g-lg-5">
-
-      <!-- Contact Info -->
-      <div class="col-lg-5">
-        <div class="info-box">
-          <h3>Contact Information</h3>
-          <p>
-            Available for frontend engineering roles and production-focused projects.
-          </p>
-
-          <div class="info-item">
-            <div class="icon-box">
-              <i class="bi bi-geo-alt"></i>
-            </div>
-            <div class="content">
-              <h4>Location</h4>
-              <p>Pakistan (Remote & On-site)</p>
+      <div class="work-card fade-up" style="grid-column: 1 / -1;">
+        <div style="display:flex; flex-wrap:wrap;">
+          <div class="work-img" style="width:340px; flex-shrink:0; aspect-ratio:auto; min-height:220px;">
+            <div id="carouselNDA" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000">
+              <div class="carousel-inner h-100">
+                <div class="carousel-item active h-100"><img src="assets/img/portfolio/pro1.png" class="d-block w-100 h-100" style="object-fit:cover;object-position:top;" alt="Confidential project"></div>
+              </div>
             </div>
           </div>
-
-          <div class="info-item">
-            <div class="icon-box">
-              <i class="bi bi-envelope"></i>
+          <div style="flex:1; min-width:260px; padding:40px;">
+            <div class="work-tag">Enterprise Systems · NDA</div>
+            <div class="work-title">Confidential Client Portals</div>
+            <p class="work-desc" style="margin-bottom: 0;">
+              Multiple enterprise portals built at TechNationals — authentication systems, data dashboards with role-based access, complex form workflows, and API-driven interfaces. Cannot share publicly due to NDA, but happy to walk through architecture and decision-making on a call.
+            </p>
+          </div>
+          </div>
+          <div style="display:flex; gap:24px; flex-wrap:wrap; flex-shrink:0; align-items:center; padding:40px 40px 40px 0;">
+            <div style="text-align: center;">
+              <div class="work-metric-val" style="font-size: 28px;">RBAC</div>
+              <div class="work-metric-label">Auth systems</div>
             </div>
-            <div class="content">
-              <h4>Email</h4>
-              <p>yahyaabbasi36@gmail.com</p>
+            <div style="text-align: center;">
+              <div class="work-metric-val" style="font-size: 28px;">i18n</div>
+              <div class="work-metric-label">Multilingual UI</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="work-metric-val" style="font-size: 28px;">API</div>
+              <div class="work-metric-label">Heavy integration</div>
             </div>
           </div>
-
-          <div class="info-item">
-            <div class="icon-box">
-              <i class="bi bi-linkedin"></i>
-            </div>
-            <div class="content">
-              <h4>LinkedIn</h4>
-              <p>
-                <a href="https://www.linkedin.com/in/yahya-abbasi-045ba2387" target="_blank">
-                  linkedin.com/in/yahyaabbasi
-                </a>
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
-      <!-- End Contact Info -->
-
-      <!-- Contact Form -->
-      <div class="col-lg-7">
-        <div class="contact-form">
-          <h3>Message</h3>
-          <p>
-            Use the form below to reach out regarding opportunities or technical discussions.
-          </p>
-
-          <form action="forms/contact.php" method="post" class="php-email-form">
-            <div class="row gy-4">
-
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-              </div>
-
-              <div class="col-md-6">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-              </div>
-
-              <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-              </div>
-
-              <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-              </div>
-
-              <div class="col-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent.</div>
-                <button type="submit" class="btn">Send Message</button>
-              </div>
-
-            </div>
-          </form>
-        </div>
-      </div>
-      <!-- End Contact Form -->
 
     </div>
   </div>
-
 </section>
 
-<!-- /Contact Section -->
-
-  </main>
-<footer id="footer" class="footer position-relative">
-
+<!-- EXPERIENCE -->
+<section id="experience">
   <div class="container">
-    <div class="copyright text-center">
-      <p>© <span id="year"></span> <strong class="px-1 sitename">Yahya Abbasi</strong>. All Rights Reserved.</p>
+    <div class="section-label">Experience</div>
+    <h2>Where I've worked</h2>
+
+    <div class="exp-grid">
+      <div class="exp-sidebar fade-up">
+        <div class="exp-company">TechNationals</div>
+        <div class="exp-role">Frontend Engineer</div>
+        <div class="exp-period">2022 – 2025 · Islamabad, PK</div>
+        <p class="exp-desc">
+          A software company delivering SaaS platforms, internal tools, and client portals. My first professional role — where I went from writing components to owning full frontend systems.
+        </p>
+      </div>
+
+      <div class="exp-items fade-up">
+        <div class="exp-item">
+          <div class="exp-bullet"></div>
+          <div>
+            <div class="exp-item-title">Built and maintained production dashboards</div>
+            <p class="exp-item-text">Architected internal admin panels and client-facing portals with complex data tables, filtering, and real-time state updates using React and TanStack Query.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-bullet"></div>
+          <div>
+            <div class="exp-item-title">Reduced API overhead through smart caching</div>
+            <p class="exp-item-text">Introduced server-state caching strategies with TanStack Query, reducing unnecessary API calls and improving perceived performance across multiple projects.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-bullet"></div>
+          <div>
+            <div class="exp-item-title">Implemented role-based access control</div>
+            <p class="exp-item-text">Designed and built RBAC systems with granular permission layers — different views, actions, and data access based on user roles.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-bullet"></div>
+          <div>
+            <div class="exp-item-title">Built reusable component libraries</div>
+            <p class="exp-item-text">Created shared component systems used across multiple projects, cutting development time for new features and ensuring UI consistency.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-bullet"></div>
+          <div>
+            <div class="exp-item-title">Owned production deployments</div>
+            <p class="exp-item-text">Handled deployment workflows, version control branching strategies, and coordination with backend teams on data contracts and API design.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-bullet"></div>
+          <div>
+            <div class="exp-item-title">Delivered multilingual UI</div>
+            <p class="exp-item-text">Implemented internationalization and theming support across enterprise portals, supporting both English and Urdu interfaces.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What I Build</div>
+    <h2>How I can help</h2>
+
+    <div class="services-grid">
+      <div class="service-item fade-up">
+        <div class="service-num">01</div>
+        <h3>SaaS Dashboards & Admin Panels</h3>
+        <p class="service-desc">Data-heavy interfaces with tables, filters, charts, and role-based access. Built to handle real workloads, not demos.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">02</div>
+        <h3>Frontend for Web Apps & Portals</h3>
+        <p class="service-desc">API-driven applications with authentication, multi-step forms, and complex state. Clean, maintainable React and TypeScript.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">03</div>
+        <h3>Offline Desktop Applications</h3>
+        <p class="service-desc">Electron apps with local databases that work without internet. Complete workflows from purchase orders to reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2>Let's work together</h2>
+
+    <div class="contact-wrap">
+      <div class="fade-up">
+        <p class="contact-tagline">
+          Have a project that needs a<br>
+          <strong>solid React engineer?</strong><br>
+          Let's talk.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <a href="mailto:yahyaabbasi36@gmail.com" class="contact-item-val">yahyaabbasi36@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/yahya-abbasi-045ba2387" target="_blank" class="contact-item-val">linkedin.com/in/yahyaabbasi</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">GitHub</div>
+            <a href="https://github.com/yahyaabbasi1" target="_blank" class="contact-item-val">github.com/yahyaabbasi1</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.8 11.5a19.79 19.79 0 0 1-3-8.67A2 2 0 0 1 3.82 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone / WhatsApp</div>
+            <a href="tel:+923701882752" class="contact-item-val">+92 370 1882752</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap fade-up">
+        <form action="forms/contact.php" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">What do you need?</label>
+            <input type="text" id="subject" name="subject" placeholder="e.g. React dashboard, admin panel, desktop app..." required>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me more</label>
+            <textarea id="message" name="message" placeholder="Project scope, timeline, budget range..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© <span id="year"></span> Yahya Abbasi. Built with intent.</div>
+    <div class="footer-links">
+      <a href="mailto:yahyaabbasi36@gmail.com">Email</a>
+      <a href="https://github.com/yahyaabbasi1" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/yahya-abbasi-045ba2387" target="_blank">LinkedIn</a>
+      <a href="assets/Resume.pdf" download>Resume</a>
+    </div>
+  </div>
 </footer>
 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  // Stagger children in grids
+  document.querySelectorAll('.stack-grid, .work-grid, .services-grid').forEach(grid => {
+    grid.querySelectorAll('.fade-up').forEach((child, i) => {
+      child.style.transitionDelay = (i * 60) + 'ms';
+    });
+  });
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  // Nav scroll shrink
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '12px 0';
+    } else {
+      nav.style.padding = '20px 0';
+    }
+  });
+</script>
 </body>
-
 </html>
